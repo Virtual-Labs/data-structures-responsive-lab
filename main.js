@@ -4,10 +4,11 @@ const INITIAL_STATE = 0;                            // the state when only Draw 
 const DRAWING_STATE = 1;                            // the state when the use could draw the graph.
 const DRAWN_STATE = 2;                              // the sate when at least one node is present (except when clear screen is pressed),
                                                     // an algorithm runs in this state.
+const DFS_RUNNING_STATE = 3;
+const BFS_RUNNING_STATE = 4;
 
 const USED_HEIGHT = 516;
 const USED_WIDTH = 1000;
-
 
 var DRAWN_NODES = 0;
 var LASTINSIDENODE = -1;
@@ -35,19 +36,19 @@ function config() {
 
   /* Buttons of the initial state */
   
-  new Button(55, 5, 80, 25, 'Draw Graph', '#008000', '#DDDDDD', function() { loadState(DRAWING_STATE); }, 15, '#FFFFFF', INITIAL_STATE, true);
+  new Button(55, 5, 80, 25, 'Draw Graph', '#008000', '#DDDDDD', function() { Experiment.loadState(DRAWING_STATE); }, 15, '#FFFFFF', INITIAL_STATE, true);
   new Button(55 + 10 + 80, 5, 80, 25, 'Instructions', '#008000', '#DDDDDD', function() { }, 15, '#FFFFFF', INITIAL_STATE, true);
 
   /* Buttons of the drawn state */
   //DrawGraph DFS BFS ResetGraph ClearScreen BoardState Instructions
 
-  new Button(55, 5, 80, 25, 'Draw Graph', '#008000', '#DDDDDD', function() { loadState(DRAWING_STATE); }, 15, '#FFFFFF', DRAWN_STATE, true);
-  new Button(55 + 1 * 10 + 1 * 80, 5, 80, 25, 'Instructions', '#008000', '#DDDDDD', function() { }, 15, '#FFFFFF', DRAWN_STATE, true);
-  new Button(55 + 2 * 10 + 2 * 80, 5, 80, 25, 'DFS', '#008000', '#DDDDDD', function() { }, 15, '#FFFFFF', DRAWN_STATE, true);
-  new Button(55 + 3 * 10 + 3 * 80, 5, 80, 25, 'BFS', '#008000', '#DDDDDD', function() { }, 15, '#FFFFFF', DRAWN_STATE, true);
-  new Button(55 + 4 * 10 + 4 * 80, 5, 80, 25, 'ResetGraph', '#008000', '#DDDDDD', function() { }, 15, '#FFFFFF', DRAWN_STATE, true);
-  new Button(55 + 5 * 10 + 5 * 80, 5, 80, 25, 'Clear Screen', '#008000', '#DDDDDD', function() { }, 15, '#FFFFFF', DRAWN_STATE, true);
-  new Button(55 + 6 * 10 + 6 * 80, 5, 80, 25, 'Board State', '#008000', '#DDDDDD', function() { }, 15, '#FFFFFF', DRAWN_STATE, true);
+  new Button(55, 5, 80, 25, 'Draw Graph', '#008000', '#DDDDDD', function() { Experiment.loadState(DRAWING_STATE); }, 15, '#FFFFFF', DRAWN_STATE, false);
+  new Button(55 + 1 * 10 + 1 * 80, 5, 80, 25, 'Instructions', '#008000', '#DDDDDD', function() { }, 15, '#FFFFFF', DRAWN_STATE, false);
+  new Button(55 + 2 * 10 + 2 * 80, 5, 80, 25, 'DFS', '#008000', '#DDDDDD', function() { Experiment.loadState(DFS_RUNNING_STATE); }, 15, '#FFFFFF', DRAWN_STATE, false);
+  new Button(55 + 3 * 10 + 3 * 80, 5, 80, 25, 'BFS', '#008000', '#DDDDDD', function() { Experiment.loadState(BFS_RUNNING_STATE); }, 15, '#FFFFFF', DRAWN_STATE, false);
+  new Button(55 + 4 * 10 + 4 * 80, 5, 80, 25, 'ResetGraph', '#008000', '#DDDDDD', function() { Experiment.resetGraph(); }, 15, '#FFFFFF', DRAWN_STATE, false);
+  new Button(55 + 5 * 10 + 5 * 80, 5, 80, 25, 'Clear Screen', '#008000', '#DDDDDD', function() { Experiment.resetGraph(); }, 15, '#FFFFFF', DRAWN_STATE, false);
+  new Button(55 + 6 * 10 + 6 * 80, 5, 80, 25, 'Board State', '#008000', '#DDDDDD', function() { }, 15, '#FFFFFF', DRAWN_STATE, false);
 
 }
 
@@ -61,16 +62,19 @@ function resizeSettings() {
 function main_loop() {
 
   DrawUtil.drawBackground();
+  InformationBoard.draw();
+
+  if(DFSBoard.visible) DFSBoard.draw();
 
   if(Button.allInstances) {
     for(i = 0; i < Button.allInstances.length; i++) {
-      if(Button.allInstances[i].state == CURRENTSTATE) {
+      if(Button.allInstances[i].visible) {
         Button.allInstances[i].draw();
       }
     }
   }
 
-  if(LASTINSIDENODE != -1 && MOUSEPRESSED && DRAWING_STATE) {
+  if((LASTINSIDENODE != -1) && (MOUSEPRESSED) && (CURRENTSTATE == DRAWING_STATE )) {
     DrawUtil.drawEdge(GraphNode.allInstances[LASTINSIDENODE].x, GraphNode.allInstances[LASTINSIDENODE].y, MOUSE_X, MOUSE_Y);
   }
 
@@ -85,11 +89,6 @@ function main_loop() {
       GraphNode.allInstances[i].draw();
     }
   }
-
-}
-
-function loadState(STATE) {
-  CURRENTSTATE = STATE;
 }
 
 window.onmousemove = function(event) {
@@ -114,6 +113,11 @@ window.onclick = function(event) {
   MOUSE_Y = MathUtil.rapplyY(event.clientY);
   MOUSEPRESSED = false;
 
+  if(CURRENTSTATE == DFS_RUNNING_STATE && Experiment.dfsComplete) {
+    Experiment.loadState(DRAWN_STATE);
+    return;
+  }
+
   if(Button.allInstances) {
     for(i = 0; i < Button.allInstances.length; i++) {
       if(Button.allInstances[i].visible && Button.allInstances[i].inside(MOUSE_X, MOUSE_Y)) {
@@ -134,16 +138,17 @@ window.onclick = function(event) {
       }
     }
 
-
     if(lastInsideNode != -1) {
       // mouse started dragging at some node.
       if(insideNode == -1) {
           new GraphNode(MOUSE_X, MOUSE_Y, NUMBER_NODES++);
           new GraphEdge(lastInsideNode, NUMBER_NODES - 1);
+          GraphNode.allInstances[lastInsideNode].connectTo(NUMBER_NODES - 1);
       } else {
         // draw edge beetween lastInsideNode and insideNode
         if(lastInsideNode != insideNode)  {
           new GraphEdge(lastInsideNode, insideNode);
+          GraphNode.allInstances[lastInsideNode].connectTo(insideNode);
         }
       }
     } else {
@@ -161,6 +166,7 @@ window.onclick = function(event) {
 }
 
 window.onmousedown = function(event) {
+
   MOUSEPRESSED = true;
   MOUSE_X = MathUtil.rapplyX(event.clientX);
   MOUSE_Y = MathUtil.rapplyY(event.clientY);
@@ -173,12 +179,20 @@ window.onmousedown = function(event) {
     }
   }
 
-  console.log(MOUSEDOWN_X, MOUSEDOWN_Y);
+  if(CURRENTSTATE == DFS_RUNNING_STATE || CURRENTSTATE == BFS_RUNNING_STATE) {
+    for(i = 0; i < GraphNode.allInstances.length; i++) {
+      if(GraphNode.allInstances[i].inside(MOUSE_X, MOUSE_Y)) {
+        //alert(MOUSEDOWN_X, MOUSEDOWN_Y, i);
+        if(CURRENTSTATE == DFS_RUNNING_STATE) Experiment.clickedInDFS(i);
+        else Experiment.clickedInBFS(i);
+      }
+    }
+  }
 }
 
 window.onkeydown = function(event) {
   if(CURRENTSTATE == DRAWING_STATE && event.keyCode == '27') {
-    loadState(DRAWN_STATE);
+    Experiment.loadState(DRAWN_STATE);
     return;
   }
 }

@@ -29,7 +29,7 @@ function DrawUtil() {
 
   DrawUtil.writeText = function (x, y, str, size, color) {
     context.fillStyle = color;
-    context.font = Math.floor(MathUtil.applyY(size)) + "px Arial";
+    context.font = "bold " + Math.floor(MathUtil.applyY(size)) + "px Arial";
     context.fillText(str, MathUtil.applyX(x), MathUtil.applyY(y));
   }
 
