@@ -1,3 +1,23 @@
-24 September : Started revising my javascript concepts.
-26 September : Read an article on how to make canvas games / animation responsive.
-27 September : Completed DRAWING_STATE. Supports drawing of some graph on to the canvas now.
+VLEAD Work Log 
+Ayush Mishra
+
+Currently working on Vlabs Data Structure experiment on Graph Traversal DFS/BFS.
+
+24 September : 7PM - 8:30PM 
+Started revising my javascript concepts.
+
+26 September : 5PM-7PM
+	Reviewed code some canvas games I made in my first year and also read an article on how to make canvas games / animation responsive. Took the Graph Traversal algorithm and analysed the experiment stimulation.
+
+26 September: 11PM-1AM
+	Started with the Graph Traversal experiment in Javascript canvas. Thought of basic utility classes to be used and wrote code for the same (like how to handle resolution on window resize / to make it responsive).  Also as canvas doesn't have buttons, everything is drawn on it, so wrote a custom Button class. The initial two buttons with the background was read. Also thought of states in the game.
+
+27 September  : 2PM-5PM: 
+Completed DRAWING_STATE. Supports drawing of some graph on to the canvas now.
+
+29 September : 4PM-7PM
+	Completed DFS part, now the experiment can simulate DFS as well as drawing of the graph. Only BFS functionality, hint giving and automatically doing DFS/BFS is left. But, before adding more functionality I will refactor my code in the next 2-3 days as I have some course also to be done.
+
+Link to github repo I pushed my code to : https://github.com/mishraiit/Vlabs
+Link to actual swf experiment :http://cse01-iiith.virtual-labs.ac.in/exp7/DFS_BFS.html
+
