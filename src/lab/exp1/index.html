@@ -1,23 +1,188 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Data Structures Lab</title>
-    <link rel="stylesheet" type="text/css" href="../normalize.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" media="screen">    
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="bstyle.css">
-    <link rel="stylesheet" type="text/css" href="overlay.css"> <!--style for overlay color changer, 
-    will be removed in production-->
-    <script type="text/javascript" src="colorchanger.js"></script> <!--script for overlay color changer-->
-    <link href='http://fonts.googleapis.com/css?family=Actor' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
-  </head>
-  <body>
-    <a href="unary-system/index.html">Unary system </a>
-    <a href="binary-system/index.html">Binary system </a>
-    <a href="roman-system/index.html">Roman system </a>
-  </body>
-  </html>
+<head>
+  <title>Data Structures Lab</title>
+  <link rel="stylesheet" type="text/css" href="../../normalize.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="../bootstrap-3.1.1-dist/css/bootstrap.min.css" media="screen">    
+  <link rel="stylesheet" type="text/css" href="../style.css">
+  <link rel="stylesheet" type="text/css" href="../bstyle.css">
+  <link rel="stylesheet" type="text/css" href="fonts.css">
+<!--   <link href='http://fonts.googleapis.com/css?family=Actor' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'> -->
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+      <![endif]-->
+      <style type="text/css">
+        body{
+          background-color: #f4f4f4;
+        }
+      </style>  
+</head>
+    <body>
 
+      <nav class="navbar navbar-default visible-lg" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"> Number System</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse desk-nav">
+          <ul class="nav navbar-nav">
+            <li style="border-right: 1.5px solid white;"><a href="index.html">Lab Manual</a></li>
+            <li style="border-right: 1.5px solid white;"><a href="simulation.html">Simulation</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+          </ul>
+          <a href="../index.html"><span class="glyphicon glyphicon-home pull-right"></span></a>
+        </div><!-- /.navbar-collapse -->
+      </nav>
+
+      <div class="hidden-lg">
+      <nav class="navbar navbar-default mobile-nav" role="navigation">
+      <div class="nav navbar-nav pull-right">
+    <a href="index.html"><span class="glyphicon glyphicon-list-alt"></span></a><a href="simulation/index.html"><span class="glyphicon glyphicon-play-circle"></span></a><a href="quiz.html"><span class="glyphicon glyphicon-tower"></span></a><a href="../index.html"><span class="glyphicon glyphicon-home"></span></a>
+  </div>
+    </nav>
+    <p class="experiment-mobile-title"> Numerical Approximation</p>
+    </div>
+
+<div class="row">
+  <div class="col-lg-2 visible-lg lab-index">
+    <ul class="nav nav-pills nav-stacked">
+      <li class="active"><a href="#intro">Introduction</a></li>
+      <li><a href="#theory">Theory</a></li>
+      <li><a href="#obj">Objective</a></li>
+      <li><a href="#man">Manual</a></li>
+      <li><a href="#proc">Procedure</a></li>
+      <li><a href="#further-reading">Further Reading</a></li>
+    </ul>
+  </div>
+
+  <div class="col-lg-10 lab-manual">
+    <div id="intro" class="manual-section">
+      <p class="manual-section-title">Introduction</p><hr />
+      <div class="manual-section-description">
+        <p>
+
+        Since ancient times, the ability to represent numbers and perform
+        arithmetic operations on numbers played an important role. Hence, it is
+        interesting to study how different representation formats impact the
+        number representation and operations. In this experiment, we study the
+        efficacy of various number representation formats. The central message
+        of this experiment is to appreciate that something that is as common as
+        operating on numbers has an embedded data structure lesson. In this
+        experiment, we will first understand how operations such as addition
+        and multiplication can be done in various formats. We focus on four
+        formats: unary, binary, decimal, and Roman. In each of these four
+        representation formats, we will learn how to perform the above two
+        operations. You can look at the lecture notes, browse through slides,
+        and also see an animation that can run several examples.</p> 
+        <p>
+        1.1 The Hindu/Arabic System This is also known as the decimal system
+        and is presently in vogue in written communication. The systemused 10
+        digits 0, 1,2 ··· , 9. For instance three hundred and sixty seven is
+        written as 367. This is a positionalnumber system with the rightmost
+        position having a weight of 1, the next position a weight of 10, and so
+        on.
+        </p>
+        <p>
+        1.2.2 The Roman System This is a system using the symbols I, V, X, L,
+        C, and M. This is not a positional system. As an example, 24 is written
+        as XXIV.
+        </p>
+        <p>
+        1.2.3 The Unary and the Binary System In the former, the only symbol
+        used is I and a number is represented by writing a number of I′s equal
+        to its value. For example, 7 is written as IIIIIII. It can be noticed
+        that this system is too laborious for large numbers such as those
+        beyond 20 or so.In the latter, two symbols 0 and 1 are used. This is a
+        positional system with weights of 1, 2, 4, and so on. For instance, 55
+        is written as 110111. The latter is popular because of its use in the
+        present generation computers.
+
+        </p>
+      </div>
+    </div>
+
+    <div id="theory" class="manual-section">
+      <p class="manual-section-title">Theory</p><hr />
+      <div class="manual-section-description">
+        <p>
+        1.2.4 Operations on Numbers Let us consider the basic arithmetic
+        operations such as addition and multiplication. In the case of addition
+        using the Hindu system, we have the notion of a carry so that if the
+        sum of any two digits in a position with weight of 10k will create a
+        carry of 1 with a weight of 10 k+1. The same is concept holds true for
+        positional systems such as the binary system, with the only difference
+        being the weights. In the unary system, the addition of numbers x and y
+        will result in a number with x + y I′s.Addition in the Roman system is
+        much more complicated. To add two numbers in the Roman system,one
+        starts by writing the numbers side by side. </p>
+        <p>For example, to add 32 and
+        53, write XXXII and LIII side by side as XXXII LIII. Then, arrange
+        these letters so that the numerals are in decreasing order. We
+        get:LXXXIIIII. The five Is can be simplified by writing them as V. So
+        we get LXXXV. This process is continued till no simplification is
+        possible. Care has to be taken when adding numbers such as 64, written
+        as LXIV.Similar observations hold in the case of multiplication as
+        multiplication can be treated as repeated addition in its basic form.
+        So one way to multiply Roman numbers is to multiply the larger number
+        by the smaller number. For example, to multiply 123 by 52, we start by
+        writing the numbers as CXXIII and LII. Now, multiply the larger number
+        CXIII by L. This is done by first multiplying by 10, which means
+        promoting the symbols and then duplicating each symbol five times.
+        Simplification can be done to reduce the number to the standard form.
+        Then,multiplication by 2 is simply duplicating each symbol twice.
+        Simplifying, we get the answer. The above reading suggests that the
+        method of number representation does have a bearing on the ease of the
+        operation. Hence, even with simple operations such as addition and
+        multiplication, a better way to organize data helps in performing the
+        operation efficiently. In the rest of this chapter, we will use the
+        decimal/binary system. We will carry forward this lesson to other
+        operations. 
+        </p>
+      </div>
+    </div>
+    <div id="obj" class="manual-section">
+      <p class="manual-section-title">Objective</p><hr />
+      <div class="manual-section-description">
+        <p>
+          Understand the relationship between data representation and data
+          manipulation. as a small practice, implement the operations ADD and
+          MULTIPLY on four different representations. study the time taken for
+          your implementations. 
+        </p>
+      </div>
+    </div>
+
+    <div id="man" class="manual-section">
+      <p class="manual-section-title">Manual</p><hr />
+      <div class="manual-section-description">
+        <p>
+        </p>
+      </div>
+    </div>
+    <div id="proc" class="manual-section">
+      <p class="manual-section-title">Procedure</p><hr />
+      <div class="manual-section-description">
+        <p>
+         
+        </p>
+      </div>
+    </div>
+
+    <div id="further-reading" class="manual-section">
+      <p class="manual-section-title">Further Reading</p><hr />
+      <div class="manual-section-description">
+        <ol>
+        </ol>
+      </div>
+    </div>
+  </div></div>
+
+</body>
+</html>

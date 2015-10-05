@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data Structures Lab</title>
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+  <link rel="stylesheet" href="../bootstrap-3.1.1-dist/css/bootstrap.min.css" media="screen">    
+  <link rel="stylesheet" type="text/css" href="../style.css">
+  <link rel="stylesheet" type="text/css" href="../bstyle.css">
+  <link rel="stylesheet" type="text/css" href="fonts.css">
+ <!--  <link href='http://fonts.googleapis.com/css?family=Actor' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'> -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+  <style type="text/css">
+        body{
+          background-color: #f4f4f4;
+        }
+      </style>  
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default visible-lg" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"> Number System </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse desk-nav">
+          <ul class="nav navbar-nav">
+            <li style="border-right: 1.5px solid white;"><a href="index.html">Lab Manual</a></li>
+            <li style="border-right: 1.5px solid white;"><a href="simulation.html">Simulation</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+          </ul>
+          <a href="../index.html"><span class="glyphicon glyphicon-home pull-right"></span></a>
+        </div><!-- /.navbar-collapse -->
+      </nav>
+
+      <div class="hidden-lg">
+      <nav class="navbar navbar-default mobile-nav" role="navigation">
+      <div class="nav navbar-nav pull-right">
+    <a href="index.html"><span class="glyphicon glyphicon-list-alt"></span></a><a href="simulation/index.html"><span class="glyphicon glyphicon-play-circle"></span></a><a href="quiz.html"><span class="glyphicon glyphicon-tower"></span></a><a href="../index.html"><span class="glyphicon glyphicon-home"></span></a>
+  </div>
+    </nav>
+    <p class="experiment-mobile-title"> Numerical Approximation</p>
+    </div>
+
+
+      <div class="manual-section">
+        <p class="manual-section-title">Quiz</p><hr />
+        <div class="manual-section-description">
+          <!-- Quiz body here -->  
+          <p>Let us now consdier some interesting ways in which the basic
+          experiment can be extended.</p>
+          <p>
+          We have seen four different representation formats for numbers. Each
+          had its own advantages and disadvantages. Consider the following
+          representation formats. It holds from the fundamental theorem of
+          arithmetic that every positive integer at least 1 can be expressed
+          uniquely as the product of prime numbers. How would you add and
+          multiply numbers in this format? Also, think of operations on numbers
+          that are easier in this format than in other formats.
+          </p>
+          <p>
+          Another related representation that is possible is to use the Chinese
+          remainder theorem. The Chinese remainder theorem is a fundamental
+          theorem in number theory. It states that any number can be
+          represented uniquely as the residue of relatively prime numbers. The
+          representation is unique up to the produce of the relative primes
+          chosen. For instance, x = 2 (mod 5), and x = 3 (mod 8), implies that
+          x = 27. How would you implement the operations add and multiply using
+          this representation. Are there operations that are simple in this
+          format than other formats?</p>
+          <p>
+          A related question to think about is to study and implement routines
+          for multiplication in the binary number system that are different
+          from the standard one. By standard, we mean that multiplication is
+          treated as repeated addition. In what circumstances does your routine
+          outperform the standard multiplication routine. Also, study the
+          multiplication operation used in computer hardware at present. To
+          carry our thoughts further, we consider the following questions.
+          Notice that some of these questions may be open, and may not have any
+          published solution.
+          </p>
+          <p>
+          Design a representation format for numbers so that the following
+          operations are all efficient. The operations of interest are : add,
+          multiply, gcd, and mod. (mod refers to integer modulo).
+          Can you design routines where the size of the numbers being handled
+          far exceedes the number sizes that a machine word can handle. Typical
+          number sizes that current machines can handle is about 20-25 digits.
+          However, there are applications which require one to handle numbers
+          of 500 digits or more. How can you support operations on such large
+          numbers? 
+          </p>
+        </div>
+    </div>
+
+    
+    
+  </body>
+</html>
