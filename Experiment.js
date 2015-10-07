@@ -7,6 +7,12 @@ function Experiment() {
   Experiment.dfsTime = 0;
   Experiment.visitedCount = 0;
   Experiment.dfsComplete = false;
+  Experiment.expectedToVisit = [];
+  Experiment.expectedToVisitNext = [];
+  Experiment.bfsSelected = -1;
+  Experiment.bfsComplete = false;
+  Experiment.LValue = []
+  Experiment.bfsStack = []
 
   Experiment.hideButtons = function (STATE) {
     for(i = 0; i < Button.allInstances.length; i++) {
@@ -26,7 +32,7 @@ function Experiment() {
 
   Experiment.loadState = function (STATE) {
 
-    if(STATE == DFS_RUNNING_STATE && NUMBER_NODES == 0) {
+    if((STATE == DFS_RUNNING_STATE || STATE == BFS_RUNNING_STATE) && NUMBER_NODES == 0) {
       InformationBoard.text = "Draw a graph with atleast one node.";
       return;
     }
@@ -34,6 +40,11 @@ function Experiment() {
     if(CURRENTSTATE == DFS_RUNNING_STATE) {
       Experiment.refreshGraph();
       DFSBoard.visible = false;
+    }
+
+    if(CURRENTSTATE == BFS_RUNNING_STATE) {
+      Experiment.refreshGraph();
+      BFSBoard.visible = false;
     }
 
     if(STATE == DRAWING_STATE) {
@@ -47,13 +58,126 @@ function Experiment() {
     Experiment.hideButtons(CURRENTSTATE);
     CURRENTSTATE = STATE;
     Experiment.showButtons(CURRENTSTATE);
+
     if(STATE == DFS_RUNNING_STATE) {
       Experiment.initDFS();
       DFSBoard.visible = true;
     }
+
+    if(STATE == BFS_RUNNING_STATE) {
+      Experiment.initBFS();
+      BFSBoard.visible = true;
+    }
+
   }
 
   Experiment.clickedInBFS = function(u) {
+    window.setTimeout(function() {
+    if(Experiment.bfsSelected == -1) {
+      GraphNode.allInstances[u].partially_visited = true;
+      Experiment.bfsSelected = u;
+      Experiment.LValue[u] = 0;
+      
+        if(!Experiment.vis[u]) {
+          Experiment.vis[u] = true;
+          InformationBoard.text = "Click on the next node for BFS.";
+          Experiment.visitedCount++;
+          Experiment.checkBFSComplete();
+          for(i = 0; i < GraphNode.allInstances[u].adjList.length; i++) {
+            if(!Experiment.vis[GraphNode.allInstances[u].adjList[i]])
+              Experiment.expectedToVisit.push(GraphNode.allInstances[u].adjList[i]);
+          }
+          if(Experiment.expectedToVisit.length == 0) {
+            Experiment.expectedToVisit = Experiment.expectedToVisitNext;
+            Experiment.expectedToVisitNext = [];
+            if(Experiment.expectedToVisit.length == 0) {
+              Experiment.bfsSelected = -1;
+              InformationBoard.text = "Click on some source node for BFS.";
+            }
+          }
+        } else {
+          InformationBoard.text = "The node you selected was already visited.";
+        }
+    } else {
+  
+        if(Experiment.expectedToVisit.indexOf(u) != -1) {
+          Experiment.vis[u] = true;
+          Experiment.LValue[u] = Experiment.calculateDistance(Experiment.bfsSelected, u);
+          InformationBoard.text = "Correct! Click on the next node for BFS.";
+          Experiment.visitedCount++;
+          Experiment.checkBFSComplete();
+          GraphNode.allInstances[u].partially_visited = true;
+          for(i = 0; i < GraphNode.allInstances[u].adjList.length; i++) {
+            if(!Experiment.vis[GraphNode.allInstances[u].adjList[i]])
+              Experiment.expectedToVisitNext.push(GraphNode.allInstances[u].adjList[i]);
+          }
+          Experiment.expectedToVisit.splice(Experiment.expectedToVisit.indexOf(u), 1);
+          if(Experiment.expectedToVisit.length == 0) {
+            Experiment.expectedToVisit = Experiment.expectedToVisitNext;
+            Experiment.expectedToVisitNext = [];
+            if(Experiment.expectedToVisit.length == 0) {
+              Experiment.bfsSelected = -1;
+              InformationBoard.text = "Click on some source node for BFS.";
+            }
+          }
+        } else {
+          InformationBoard.text = "Wrong node selected. Click on the next node for BFS.";
+        }
+    }
+  
+    for(var i = 0; i < GraphNode.allInstances.length; i++) {
+        var allVisited = true;
+        for(var j = 0; j < GraphNode.allInstances[i].adjList.length; j++) {
+          allVisited = allVisited && ( Experiment.vis[GraphNode.allInstances[i].adjList[j]] == true);
+        }
+        if(Experiment.vis[i] && allVisited && Experiment.expectedToVisitNext.indexOf(i) == -1) GraphNode.allInstances[i].completely_visited = true;
+      }
+    }, 30);
+  }
+
+  Experiment.checkBFSComplete = function() {
+    if(Experiment.visitedCount == NUMBER_NODES) {
+      window.setTimeout(function() { 
+        InformationBoard.text = "Correct ! You have succesfully completed the BFS. Click anywhere on screen to go to main menu.";
+        Experiment.bfsComplete = true;
+      }, 1000);
+    }
+  }
+
+
+  Experiment.initBFS = function() {
+    Experiment.vis = [];
+    Experiment.bfsComplete = false;
+    Experiment.visitedCount = 0;
+    Experiment.bfsStack = [];
+    Experiment.bfsSelected = -1;
+    Experiment.expectedToVisit = [];
+    Experiment.expectedToVisitNext = [];
+    for(i = 0; i < GraphNode.allInstances.length; i++) {
+      Experiment.vis[i] = false;
+      Experiment.LValue[i] = '-';
+    }
+  }
+
+  Experiment.calculateDistance = function(u, v) {
+    visited = [];
+    queue = [];
+    dist = [];
+    queue.push(u);
+    dist[u] = 0;
+
+    while(queue.length != 0) {
+      var top = queue.shift();
+      console.log(top);
+      for(j = 0; j < GraphNode.allInstances[top].adjList.length; j++) {
+        if(!visited[GraphNode.allInstances[top].adjList[j]]) {
+          visited[GraphNode.allInstances[top].adjList[j]] = true;
+          dist[GraphNode.allInstances[top].adjList[j]] = dist[top] + 1;
+          queue.push(GraphNode.allInstances[top].adjList[j]);
+        }
+      }
+    }
+    return dist[v];
   }
 
   Experiment.clickedInDFS = function(u) {
@@ -133,6 +257,8 @@ function Experiment() {
     }
   }
 
+
+
   Experiment.refreshGraph = function() {
       for(i = 0; i < GraphNode.allInstances.length; i++) {
       GraphNode.allInstances[i].partially_visited = false;
@@ -141,10 +267,12 @@ function Experiment() {
   }
 
   Experiment.resetGraph = function() {
-    InformationBoard.text = "Click on draw graph to start drawing the graph."
-    GraphNode.allInstances = [];
-    GraphEdge.allInstances = [];
-    NUMBER_NODES = 0;
+    if(confirm('Are you sure you want to reset the graph?')) {
+      InformationBoard.text = "Click on draw graph to start drawing the graph."
+      GraphNode.allInstances = [];
+      GraphEdge.allInstances = [];
+      NUMBER_NODES = 0;
+    }
   }
 
 }
