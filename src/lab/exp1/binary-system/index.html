@@ -1,18 +1,51 @@
 <!DOCTYPE html>
 <html>
-<head>
-<script src = "index3.js"></script>
-<link rel="stylesheet" type="text/css" href="index3.css" />
-<title>Binary System</title>
-</head>
-<body>	
-<div class="parentDiv">		 
-<input class="firstInputBox" id='first' placeholder="Enter the First Binary value" type="text" name="firstValue">
-<input class="secondInputBox" id='second' placeholder="Enter the Second Binary value" type="text" name="secondValue">
-<button class="button button1" onclick="addition(firstValue,secondValue)" >Add</button>
-<button class="button button2" onclick="multiplication(a,b)" >Mul</button>
-<p>The Addition of Two Binary value is</p><input id='sixth' type="text" name="sixthValue"> 
-<p>The Multiplication of Two Binary value is</p><input id='seventh' type="text" name="seventhValue"> 
-</div>
-</body>
+  <head>
+    <script src = "index3.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="index3.css" />
+    <title>Binary System</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default"> </nav>
+    <div class="container"> 
+      <div class="row">
+        <div class="col-md-5">
+          <input type="text" class="form-control" id="first" placeholder="Enter first binary value">
+        </div>
+        <div class="col-xs-5">
+          <input type="text" class="form-control" id="second" placeholder="Enter second binary value">
+        </div>
+      </div><br>
+
+      <div class="row">
+        <div class="col-md-5"> 
+            <button type="submit" class="btn btn-default pull-right" onclick="addition(firstValue, secondValue)">Add</button>
+        </div>
+        <div class="col-md-5">
+            <button type="submit" class="btn btn-default pull-left" onclick="multiplication(a,b)">Multiply</button>
+        </div>
+      </div>
+      <br><br>
+      <div class="row">
+        <div class="col-md-3"><h5>The addition of two binary values is:</h5></div>
+          <div class="col-md-3">
+             <input type="text" id="addResult" class="form-control"></div>
+          </div>
+        <br>
+         <div class="row">
+          <div class="col-md-3"><h5>The multiplication of two binary values is:</h5></div>
+           <div class="col-md-3">
+             <input type="text" id="mulResult" class="form-control"></div>
+          </div>
+         </div>
+      </div>
+  </body>
 </html>
