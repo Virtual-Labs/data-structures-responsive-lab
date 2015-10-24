@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Binary Number System</title>
+  <link rel="stylesheet" type="text/css" href="main.css" />
+  <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+</head>
+<body>
+  <nav class="nav colorSet navbar-inner">
+      <p> Binary Number System</p>  
+  </nav>
+  <br>
+  <div class="container">
+     <div class="row">
+        <div class="col-md-5">
+          <h5> Enter first binary value: </h5><input type="text" class="form-control" id="ip-num1" placeholder="Enter first binary value">
+        </div>
+        <div class="col-md-5">
+          <h5> Enter second binary value: </h5> <input type="text" class="form-control" id="ip-num2" placeholder="Enter second binary value">
+        </div>
+      </div><br>
+
+      <div class="row">
+          <div class="col-md-5"> 
+            <button class="btn btn-primary btn-lg pull-right" onclick="add()">Add</button>
+          </div>
+          <div class="col-md-5"> 
+            <button class="btn btn-primary btn-lg pull-left" onclick="mul()">Multiply</button>
+          </div>
+      </div><br>
+
+
+      <div class="row" style="border: 1px solid #ccc">
+        <div class="col-md-6"> 
+          <div class="row" id="arrow">
+            <div class="line"></div>
+            <div class="arrow-head"></div>
+          </div>
+          <div class="row">
+            <div class="nums" id="num1"></div>
+          </div>
+          <div class="row">
+            <div class="nums" id="num2"></div>
+          </div>
+          <hr> 
+          <div class="row">
+            <div class="nums" id="result"></div>
+          </div>
+        </div>
+        <div class="col-md-6 some">
+          <div class="col-md-3 some">Carry:</div>
+          <div class="col-md-9 some" id="carry"></div>
+        </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script type="text/javascript" src="binary_addition.js"></script>
+</body>
+</html>
