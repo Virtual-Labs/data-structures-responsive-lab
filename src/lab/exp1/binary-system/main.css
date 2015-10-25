@@ -27,6 +27,7 @@
       text-align: left;
       font-weight: bold;
       margin-top: 5px;
+      font-family: Calibri;
     }
     
     .navbar-inner {
@@ -34,8 +35,12 @@
     min-height: 55px;
 }
 p {
-        color: #FFF;
-        text-align: center;
-        font-size: 2em;
-        margin: 1px 0 10px;
-      }
+  color: #FFF;
+  text-align: center;
+  font-size: 2em;
+  margin: 1px 0 10px;
+}
+
+.desc{
+  font-family: Calibri;
+}
