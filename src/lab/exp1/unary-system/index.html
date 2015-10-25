@@ -1,22 +1,71 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Unary System</title>
+    <title>Unary Numbr System</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
   </head>
   <body>	
-    <div class="parentDiv">		 
-      <input  id='first' placeholder="Enter the First Unary Number" type="text" name="firstValue">
-      <input  id='second' placeholder="Enter the Second Unary Number" type="text" name="secondValue">
-      <button  onclick="add(a,b)" >Add</button>
-      <button  onclick="mul(a,b)" >Mul</button>
-      <button onclick="reset()"> Reset </button><br>
-      <p>Count of the First Unary Number        Count of the Second Unary  Number</p>
-      <input id='third' type="text" name="thirdValue"><input id='fourth' type="text" name="fourthValue">
-      <p>Take the minimum count and perform the repeated additions until count becomes 1</p>
-      <input id='fifth' type="text" name="fifthValue">
-      <p>The Multiplication of Two Unary Numbers is</p><input id='seventh' type="text" name="seventhValue"> 
-      <p>The Addition of Two Unary Numbers is</p><input id='sixth' type="text" name="sixthValue"> 
+    <nav class="nav colorSet navbar-inner">
+      <p> Unary Number System</p>  
+    </nav>
+    <br>
+
+    <div class="container">
+     <div class="row">
+        <div class="col-md-5">
+          <div class="desc"><h5> Enter the first unary value: </h5></div><input type="text" class="form-control" id="first" placeholder="Enter first unary value">
+        </div>
+        <div class="col-md-5">
+          <div class="desc"><h5> Enter second Unary value: </h5> </div><input type="text" class="form-control" id="second" placeholder="Enter second unary value">
+        </div>
+      </div><br>
+
+      <div class="row">
+          <div class="col-md-4"> 
+            <button class="btn btn-primary btn-lg pull-right" onclick="add(a, b)">Add</button>
+          </div>
+          <div class="col-md-1"> 
+            <button class="btn btn-primary btn-lg " onclick="mul(a, b)">Multiply</button>
+          </div>
+          <div class="col-md-4"> 
+            <button class="btn btn-primary btn-lg pull-left reset" onclick="reset()">Reset</button>
+          </div>
+      </div>  
+      <hr>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="col-md-8 desc"><h5>The Addition of Two Unary Numbers is: </h5></div><div class="col-md-4 pull-left result" id="sixth"></div>
+        </div>    
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-7">
+          <div class="col-md-6 desc"><h5>The Multiplication of Two Unary Numbers is: </h5></div><div class="col-md-6 pull-left result" id="seventh"></div>
+        </div>
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="col-md-6 desc"><h5>Count of the First Unary Number: </h5></div><div class="col-md-6 pull-left result" id="third"></div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="col-md-6 desc"><h5>Count of the second Unary Number: </h5></div><div class="col-md-6 pull-left result" id="fourth"></div>
+        </div>
+        </div>  
+        <br>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="col-md-6 desc"><h5>Take the minimum count and perform the repeated additions until count becomes 1: </h5></div> <div class="col-md-6 result" id="fifth"></div>
+        </div>
+        </div>
+      </div>
     </div>
   </body>
-    <script src = "index1.js"></script>
+  <script src = "index1.js"></script>
 </html>

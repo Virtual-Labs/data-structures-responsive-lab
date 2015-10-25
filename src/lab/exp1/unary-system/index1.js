@@ -7,7 +7,7 @@ function add(a,b)
  b = document.getElementById('second').value;
 
  var res = a.concat(b);
- document.getElementById('sixth').value = res;
+ document.getElementById('sixth').innerHTML = res;
 
  
 }
@@ -20,39 +20,41 @@ function mul(a,b)
 
  
 
- document.getElementById('third').value = a.length;
- document.getElementById('fourth').value = b.length;
+ document.getElementById('third').innerHTML = a.length;
+ document.getElementById('fourth').innerHTML= b.length;
  
  if(a.length > b.length)
   {
     var count = b.length - 1;
-    document.getElementById('fifth').value = count;
+    document.getElementById('fifth').innerHTML = count;
      var res = ' ';
      while(count)
      {
         res += a.concat(a);
-        //alert(res);
+        alert(res);
       count--;
      }
-     document.getElementById('seventh').value = res;
+     document.getElementById('seventh').innerHTML = res;
 
  }
   else
   { 
     var count = a.length - 1;
-    document.getElementById('fifth').value = count;
-	var res = ' ';
+    document.getElementById('fifth').innerHTML = count;
+	  var res = ' ';
      while(count)
      {
         res += a.concat(a);
         //alert(res);
       count--;
      }
-     document.getElementById('seventh').value = res;
+     document.getElementById('seventh').innerHTML = res;
   }
 }
 
 function reset(){
- document.getElementById('first').value = ""
- document.getElementById('second').value = ""
+  location.reload();
+  document.getElementById('first').value = ""
+  document.getElementById('second').value = ""
+ 
 } 
