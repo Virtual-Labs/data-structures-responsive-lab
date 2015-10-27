@@ -86,5 +86,4 @@ function move_arrow() {
 }
 
 function mul(){
-  alert("Sorry!! It's not working");
 }
