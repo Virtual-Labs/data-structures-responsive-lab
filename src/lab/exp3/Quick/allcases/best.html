@@ -1,0 +1,168 @@
+<!Doctype html>
+<head>
+<title> simulation </title>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="random.js"></script>
+<script>
+ $(document).ready(function(){
+     $("#hover").hide();
+
+     $("#show").click(function(){
+         $("#hover").show();
+     });
+     
+ });
+</script>
+<style>
+table.demo{
+border: 1px;
+border-collapse: collapse;
+padding:15px;
+background-color: green;
+}
+value{
+	text-align: center;
+}
+/*div.#myfunction{
+		move('#firstinputbox .first')
+  .translate(300, 80)
+  .end();
+}
+table.float{
+	background-color: green;
+	border-color: black
+}
+img{
+	size: 10%
+}*/
+#hover {
+    width: 100px;
+    height: 100px;
+    
+    -webkit-animation: mymove infinite; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 2s; /* Chrome, Safari, Opera */
+    animation: mymove single;
+    animation-duration: 0s;
+    animation:direction: normal;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+    from {top: 0px;}
+    to {top: 200px;}
+}
+
+button.one {
+    border-style: solid;
+    border-color: ;
+}
+
+button.two {
+    border-style: solid;
+    border-color:;
+}
+
+button.three {
+    border-style: solid;
+    border-color: ;
+}
+
+button.four {
+    border-style: solid;
+    border-color:;
+}
+button.five {
+    border-style: solid;
+    border-color:  ;
+}
+button.six {
+    border-style: solid;
+    border-color: ;
+}
+button.seven {
+    border-style: solid;
+    border-color:;
+}
+button.eight {
+    border-style: solid;
+    border-color:  ;
+}
+
+
+
+</style>
+</head>
+<body><br><Br>
+<center>
+			
+			<h4 >
+			<center>Best Case 
+			</center>
+			</h4>
+		
+		<nav>
+		  <ul class="pager"><li class="next"><a href="../quicksort.html"><span aria-hidden="true"></span> Previous</a></li></ul>
+		</nav>
+	<div>
+		<table id="float" style = "height:100px;width:400px;">
+		<tr class="firstInputBox"  text-align="right" >
+		<td><button class="one"    style="width: 30px ; height : 30px">1</button></td>
+		<td><button class="two"    style="width: 30px ; height : 30px">2</button></td>
+		<td><button class="three"  style="width: 30px ; height : 30px">3</button></td>
+		<td><button class="four"   style="width: 30px ; height : 30px">4</button></td>
+		<td><button class="five"   style="width: 30px ; height : 30px">5</button></td>
+		<td><button class="six"    style="width: 30px ; height : 30px">6</button></td>
+		<td><button class="seven"  style="width: 30px ; height : 30px">7</button></td>
+		<td><button class="eight"  style="width: 30px ; height : 30px">8</button></td>
+
+		</tr>
+		</table>
+		
+	</div>
+		<div id="br">
+			<button class="btn btn-info" id="show">Submit</button>
+
+		</div><br>
+
+	<div id="hover">
+		<div class="stage">
+		<center>		
+			<table id = "first"  style = "height:100px;width:400px;" >
+				<tr id="demo">
+					<td id="align">				
+					<td>
+					<button class="one"  style="width: 30px ; height : 30px">1</button>
+					<button class="two"  style="width: 30px ; height : 30px">2</button>
+					<button class="three"  style="width: 30px ; height : 30px">3</button>
+					<button class="four"  style="width: 30px ; height : 30px">4</button>
+					</td>
+					<td>
+					<button class="five"  style="width: 30px ; height : 30px">5</button>
+					<button class="six"  style="width: 30px ; height : 30px">6</button>
+					<button class="seven"  style="width: 30px ; height : 30px">7</button>
+					<button class="eight"  style="width: 30px ; height : 30px">8</button>
+					</td>
+					</td>
+				</tr>
+			</table>	
+		</center></div> 
+			
+		<div id="demo1">
+			<!--<table cellpadding="20">
+				<tr>
+					<td ><input class="firstInputfield" id='first' value="1"  type="text" name="firstValue" style="width: 30px ; height : 20px" background-color="green"></td>
+					<td><input class="firstInputBox" id='first' value="2"  type="text" name="firstValue" style="width: 30px ; height : 20px"></td> 
+					<td><input class="firstInputBox" id='first'  value="3" type="text" name="firstValue" style="width: 30px ; height : 20px">td>
+					<td ><input class="firstInputfield" id='first' value="5"  type="text" name="firstValue" style="width: 30px ; height : 20px" background-color="green"></td>
+					<td><input class="firstInputBox" id='first' value="2"  type="text" name="firstValue" style="width: 30px ; height : 20px"></td> 
+					<td><input class="firstInputBox" id='first'  value="7" type="text" name="firstValue" style="width: 30px ; height : 20px" ></td>
+				</tr> -->
+				</table>	  
+			</div>
+	</div>
+		</center>
+		<script src="http://hammerjs.github.io"></script>
+</body>
+</html>
