@@ -1,0 +1,118 @@
+<!Doctype html>
+<head>
+<title> simulation </title>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script>
+ $(document).ready(function(){
+     $("#stage").hide();
+
+     $("#show").click(function(){
+         $("#stage").show();
+     });
+     
+ });
+</script>
+<style>
+table.demo{
+border: 1px;
+border-collapse: collapse;
+padding:15px;
+background-color: green;
+}
+value{
+	text-align: center;
+}
+div.hover {
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: relative;
+    -webkit-animation: mymove; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 1s; /* Chrome, Safari, Opera */
+    animation: mymove ;
+    animation-duration: 1s;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+    from {top: 0px;}
+    to {top: 100px;}
+}
+/*div.#myfunction{
+		move('#firstinputbox .first')
+  .translate(300, 80)
+  .end();
+}
+table.float{
+	background-color: green;
+	border-color: black
+}
+img{
+	size: 10%
+}*/
+
+</style>
+
+</head>
+<body bgcolor="#E8E8E6">
+<br><br>
+<center>
+
+	<div>
+
+	<p> <h4>Random Input</h4></p>
+	<nav>
+		  <ul class="pager">
+		  <li class="next"><a href="best.html"><span aria-hidden="true"></span>Previous</a></li>
+		  <li class="next"><a href="../quicksort.html"><span aria-hidden="true"></span> Home</a></li>
+			</ul>
+		</nav>
+		
+		
+		<table id="float">
+		<tr class="firstInputBox" text-align="right">
+		<td><input class="firstInputBox" id='first' value="3" type="text" name="firstValue" style="width: 30px ; height : 20px"></td>
+		<td><input class="firstInputBox" id='first' value="7" type="text" name="firstValue" style="width: 30px ; height : 20px"></td>
+		<td><input class="firstInputBox" id='first' value="6" type="text" name="firstValue" style="width: 30px ; height : 20px"></td>
+		<td><input class="firstInputBox" id='first' value="4" type="text" name="firstValue" style="width: 30px ; height : 20px"></td>
+		<td><input class="firstInputBox" id='first' value="8" type="text" name="firstValue" style="width: 30px ; height : 20px"></td>
+		<td><input class="firstInputBox" id='first' value="1" type="text" name="firstValue" style="width: 30px ; height : 20px"></td>
+		<td><input class="firstInputBox" id='first' value="2" type="text" name="firstValue" style="width: 30px ; height : 20px"></td>
+		<td><input class="firstInputBox" id='first' value="5" type="text" name="firstValue" style="width: 30px ; height : 20px"></td>
+
+		</tr>
+		</table>
+		<br><br>
+		</div>
+		<div id="br">
+			<button class="btn btn-info" id="show">Submit</button>
+
+		</div><br>
+		<div id="stage">
+			<div>
+				<table id = "first" cellpadding="10" style = "height:100px;width:400px;" position:"absolute">
+					<tr id="demo">
+					
+						<td>
+						<input class="firstInputBox" id='first' value="3" type="text" name="firstValue" style="width: 30px ; height : 20px">
+						<input class="firstInputBox" id='first' value="7" type="text" name="firstValue" style="width: 30px ; height : 20px">
+						<input class="firstInputBox" id='first' value="6" type="text" name="firstValue" style="width: 30px ; height : 20px">
+						<input class="firstInputBox" id='first' value="4" type="text" name="firstValue" style="width: 30px ; height : 20px">
+						</td>
+						<td>
+						<input class="firstInputBox" id='first' value="8" type="text" name="firstValue" style="width: 30px ; height : 20px">
+						<input class="firstInputBox" id='first' value="1" type="text" name="firstValue" style="width: 30px ; height : 20px">		
+						<input class="firstInputBox" id='first' value="2" type="text" name="firstValue" style="width: 30px ; height : 20px">
+						<input class="firstInputBox" id='first' value="5" type="text" name="firstValue" style="width: 30px ; height : 20px">
+						</td>
+							
+					</tr>
+				</table>	
+			</div> 
+			
+			</div>
+		<script src="http://hammerjs.github.io"></script>
+</body>
+</html>
