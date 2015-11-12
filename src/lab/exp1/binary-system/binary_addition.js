@@ -5,6 +5,12 @@ function add() {
   b = $('#ip-num2').val();
 
   // TODO: validate if numbers..
+  if (/^[01]+$/.test(a) ==false || /^[01]+$/.test(b) == false)
+    alert("Enter binary numbers");
+  else 
+    addit();
+
+  function addit(){
   if(a.length < b.length) {
     var diff = b.length - a.length;
     a = prepend_zeros(diff, a);
@@ -19,8 +25,9 @@ function add() {
   $('#num2').html(b);
   $('#result').html('');
   place_arrow();
-  add_digit();
+  add_digit();/^[01]+$/.test(a) == false
 }
+};  
 
 function add_digit() {
   console.log('cur digit index:', cur_digit);
@@ -86,5 +93,4 @@ function move_arrow() {
 }
 
 function mul(){
-  alert("Sorry!! It's not working");
 }

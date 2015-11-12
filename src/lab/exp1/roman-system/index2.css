@@ -1,0 +1,20 @@
+.navbar-inner {
+    background: #3652a4;
+    min-height: 55px;
+}
+
+p {
+    color: #FFF;
+    text-align: center;
+    font-size: 2em;
+    margin: 1px 0 10px;
+}
+.desc{
+  font-family: Calibri;
+}
+.result{
+	font-family: Calibri;
+	font-size: x-large;
+	color: #3652a4;
+	font-weight: bolder;
+}

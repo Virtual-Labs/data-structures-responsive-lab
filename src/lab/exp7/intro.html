@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Data Structures Lab</title>
+  <link rel="stylesheet" type="text/css" href="../../normalize.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="../bootstrap-3.1.1-dist/css/bootstrap.min.css" media="screen">    
+  <link rel="stylesheet" type="text/css" href="../style.css">
+  <link rel="stylesheet" type="text/css" href="../bstyle.css">
+  <link rel="stylesheet" type="text/css" href="fonts.css">
+<!--   <link href='http://fonts.googleapis.com/css?family=Actor' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'> -->
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+      <![endif]-->
+      <style type="text/css">
+        body{
+          background-color: #f4f4f4;
+        }
+      </style>  
+</head>
+    <body>
+
+      <nav class="navbar navbar-default visible-lg" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"> Graph Traversals</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse desk-nav">
+          <ul class="nav navbar-nav">
+            <li style="border-right: 1.5px solid white;"><a href="intro.html">Lab Manual</a></li>
+            <li style="border-right: 1.5px solid white;"><a href="simulation-page.html">Simulation</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+          </ul>
+          <a href="../index.html"><span class="glyphicon glyphicon-home pull-right"></span></a>
+        </div><!-- /.navbar-collapse -->
+      </nav>
+
+      <div class="hidden-lg">
+      <nav class="navbar navbar-default mobile-nav" role="navigation">
+      <div class="nav navbar-nav pull-right">
+    <a href="intro.html"><span class="glyphicon glyphicon-list-alt"></span></a><a href="simulation-page.html"><span class="glyphicon glyphicon-play-circle"></span></a><a href="quiz.html"><span class="glyphicon glyphicon-tower"></span></a><a href="../index.html"><span class="glyphicon glyphicon-home"></span></a>
+  </div>
+    </nav>
+    <p class="experiment-mobile-title">Graph Traversal</p>
+    </div>
+
+<div class="row">
+  <div class="col-lg-2 visible-lg lab-index">
+    <ul class="nav nav-pills nav-stacked">
+      <li class="active"><a href="#intro">Introduction</a></li>
+      <li><a href="#theory">Theory</a></li>
+      <li><a href="#obj">Objective</a></li>
+      <li><a href="#man">Manual</a></li>
+      <li><a href="#proc">Procedure</a></li>
+      <li><a href="#further-reading">Further Reading</a></li>
+    </ul>
+  </div>
+
+  <div class="col-lg-10 lab-manual">
+    <div id="intro" class="manual-section">
+      <p class="manual-section-title">Introduction</p><hr />
+      <div class="manual-section-description">
+        <p>
+          In this experiment, we will see a fundamental problem related to graphs, Graph Traversal. It is nothing more than visiting every vertex of the given graph. Based on the order in which we visit the vertices, we define two different types of graph traversals. The order of vertices thus obtained can be useful in understanding several properties of the graph. </p>
+          <br>
+          <p> Two main techniques : Breadth First Search (BFS), and Depth First Search (DFS). </p>
+        </p>
+      </div>
+    </div>
+
+    <div id="theory" class="manual-section">
+      <p class="manual-section-title">Theory</p><hr />
+      <div class="manual-section-description">
+        <p>
+          <h3>Breadth First Search (BFS)</h3></p>
+          <p>BFS is similar to level order traversal in a tree, where we visit vertices in a level by level order. We specify a starting vertex S and start visiting vertices of the graph G from the vertex S. As a general graph can have cycles, we may visit the same vertex more than once. To solve this, we also maintain the state of each vertex. A vertex can be in one of three states, VISITED, NOT_VISITED, IN_PROCESS. The basic idea of breadth first search is to find the least number of edges between S and any other vertex in G. Starting from S, we visit vertices of distance k before visiting any vertex of distance k+1. For that purpose, define ds(v) to be the least number of edges between S and v in G. So, for vertices v that are not reachable from S we can have ds(v) = ∞. We can use a queue to store vertices in progress.</p>
+          <p>We also a maintain from[u] for each of the vertex u, which denotes the vertex that discovered u. This information can be used to define the predecessor subgraph of G, which has all edges (from[u],u). These edges are called as tree edges. For a tree edge (u, v), ds(v) = ds(u) + 1. All other edges are called non-tree edges and are further classified as back edges and cross edges. A non-tree edge (u, v) is called as a back edge if ds(v) < ds(u), meaning u can be reached from S via v, but there is yet another shortest path through path u can be reached from S. An edge (u, v) is called a cross edge if d(v) ≤ d(u) + 1.</p>
+          <p><h3>Depth First Search (DFS)</h3></p>
+          <p>The idea of DFS is to start from a specified start vertex S and explore from S as deep as possible. We go from S, to one of its neighbors x, to a neighbor of x, and so on. We stop when there are no new neighbors to explore from a given vertex. If all vertices are not visited, pick another start vertex from such vertices. We have to keep track of the state of a vertex and similar to BFS, a vertex can be in three states: VISITED, NOT_VISITED, IN_PROCESS. We also a maintain from[u], d[u], f[u] for each of the vertex u, which denotes the vertex that discovered u, the discovery time of u and the finish time u.</p>
+
+      </div>
+    </div>
+    <div id="obj" class="manual-section">
+      <p class="manual-section-title">Objective</p><hr />
+      <div class="manual-section-description">
+        <p>
+         At the end of this experiment, you will be able to:</p>
+         
+         <p>* Perform a Breadth First Traversal on a graph</p>
+         <p>* Perform a Depth First Traversal on a graph</p>
+         <p>* Classify edges of the graph based on the traversal</p>
+      </div>
+    </div>
+
+    <div id="man" class="manual-section">
+      <p class="manual-section-title">Manual</p><hr />
+      <div class="manual-section-description">
+        <p>
+        </p>
+      </div>
+    </div>
+    <div id="proc" class="manual-section">
+      <p class="manual-section-title">Procedure</p><hr />
+      <div class="manual-section-description">
+        <p>
+          
+        </p>
+      </div>
+    </div>
+
+    <div id="further-reading" class="manual-section">
+      <p class="manual-section-title">Further Reading</p><hr />
+      <div class="manual-section-description">
+        <ol>
+        </ol>
+      </div>
+    </div>
+  </div></div>
+
+</body>
+</html>

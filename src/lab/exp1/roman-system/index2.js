@@ -13,17 +13,17 @@ function add(first,second)
 	var secondValue = document.getElementById('second').value.toUpperCase();
 	 	
 	Subtractives(firstValue,secondValue);
-	var thirdValue = document.getElementById('third').value;
-	var fourthValue = document.getElementById('fourth').value;
+	var thirdValue = document.getElementById('third').innerHTML;
+	var fourthValue = document.getElementById('fourth').innerHTML;
 
 	var res = thirdValue.concat(fourthValue);
-	document.getElementById('fifth').value = res;//display's concatinated value.
+	document.getElementById('fifth').innerHTML = res;//display's concatinated value.
 	
 	Sorting(res);
-	var res6 = document.getElementById('sixth').value
+	var res6 = document.getElementById('sixth').innerHTML
 	
 	var partialresult1 = matching(res6);
-	alert(partialresult1);
+	//alert(partialresult1);
 	var partialresult2 = matching(partialresult1);
 	//alert(partialresult2);
 	
@@ -35,8 +35,8 @@ function mul(first,second)
 	var secondValue = document.getElementById('second').value.toUpperCase();
 
 	Subtractives(firstValue,secondValue);
-	var thirdValue = document.getElementById('third').value;
-	var fourthValue = document.getElementById('fourth').value;
+	var thirdValue = document.getElementById('third').innerHTML;
+	var fourthValue = document.getElementById('fourth').innerHTML;
 	
 	var res1 = thirdValue;
 	var res2 = fourthValue;
@@ -63,13 +63,13 @@ function mul(first,second)
 	res8 += IntegerToRomanNumeral(res7[i]);
 	}
 	}
-	document.getElementById('fifth').value = res8;
+	document.getElementById('fifth').innerHTML = res8;
 
 	Sorting(res8);
-	var res6 = document.getElementById('sixth').value;
+	var res6 = document.getElementById('sixth').innerHTML;
 
 	var partialresult1 = matching(res6);
-	alert(partialresult1);
+	//alert(partialresult1);
 	var partialresult2 = matching(partialresult1);
 	//alert(partialresult2);
 
@@ -95,91 +95,91 @@ function matching(res6)
 	{
 		if(result1)
 		{	
-		document.getElementById('seventh').value = result1;
-		document.getElementById('eighth').value = "X";
+		document.getElementById('seventh').innerHTML = result1;
+		document.getElementById('eighth').innerHTML = "X";
 		var res7 = res6.replace(/[VV]{2}/g,"X");
 		//alert(res7);
-		document.getElementById('ninth').value = res7;
+		document.getElementById('ninth').innerHTML = res7;
 		return res7;
 		}
 		if(result2)
 		{
-		document.getElementById('seventh').value = result2;
-		document.getElementById('eighth').value = "C";
+		document.getElementById('seventh').innerHTML = result2;
+		document.getElementById('eighth').innerHTML = "C";
 		var res8 = res7.replace(/[LL]{2}/g,"C");
 		//alert(res8);
-		document.getElementById('ninth').value = res8;
+		document.getElementById('ninth').innerHTML = res8;
 		return res8;
 		}
 		if(result3)
 		{
-		document.getElementById('seventh').value = result3;
-		document.getElementById('eighth').value = "M";
+		document.getElementById('seventh').innerHTML = result3;
+		document.getElementById('eighth').innerHTML = "M";
 		var res9 = res8.replace(/[DD]{2}/g,"M");
 		//alert(res9);
-		document.getElementById('ninth').value = res9;
+		document.getElementById('ninth').innerHTML = res9;
 		return res9;
 		}
 		if(result4)
 		{
-		document.getElementById('seventh').value = result4;
-		document.getElementById('eighth').value = "V";
+		document.getElementById('seventh').innerHTML = result4;
+		document.getElementById('eighth').innerHTML = "V";
 		var res10 = res6.replace(/[I]{5}/g,"V");
 		//alert(res10);
-		document.getElementById('ninth').value = res10;
+		document.getElementById('ninth').innerHTML = res10;
 		return res10;
 		}
 		
 		if(result6)
 		{
-		document.getElementById('seventh').value = result6;
-		document.getElementById('eighth').value = "L";
+		document.getElementById('seventh').innerHTML = result6;
+		document.getElementById('eighth').innerHTML = "L";
 		var res11 = res6.replace(/[X]{5}/g,"L");
 		//alert(res10);
-		document.getElementById('ninth').value = res11;
+		document.getElementById('ninth').innerHTML = res11;
 		return res11;
 		}
 
 		if(result8)
 		{
-		document.getElementById('seventh').value = result8;
-		document.getElementById('eighth').value = "D";
+		document.getElementById('seventh').innerHTML = result8;
+		document.getElementById('eighth').innerHTML = "D";
 		var res14 = res6.replace(/[C]{5}/g,"D");
 		//alert(res10);
-		document.getElementById('ninth').value = res14;
+		document.getElementById('ninth').innerHTML = res14;
 		return res14;
 		}
 		
 
 		if(result10)
 		{
-		document.getElementById('seventh').value = result10;
-		document.getElementById('eighth').value = "IX";
+		document.getElementById('seventh').innerHTML = result10;
+		document.getElementById('eighth').innerHTML = "IX";
 		var res16 = res6.replace(/[V][I]{4}/g,"IX");
 		//alert(res10);
-		document.getElementById('ninth').value = res16;
+		document.getElementById('ninth').innerHTML = res16;
 		return res16;
 		}
 
 				
 		if(result11)
 		{
-		document.getElementById('seventh').value = result11;
-		document.getElementById('eighth').value = "XC";
+		document.getElementById('seventh').innerHTML = result11;
+		document.getElementById('eighth').innerHTML = "XC";
 		var res17 = res6.replace(/[L][X]{4}/g,"XC");
 		//alert(res10);
-		document.getElementById('ninth').value = res17;
+		document.getElementById('ninth').innerHTML = res17;
 		return res17;
 		}
 		
 		
 		if(result12)
 		{
-		document.getElementById('seventh').value = result12;
-		document.getElementById('eighth').value = "CM";
+		document.getElementById('seventh').innerHTML = result12;
+		document.getElementById('eighth').innerHTML = "CM";
 		var res18 = res6.replace(/[D][C]{4}/g,"CM");
 		//alert(res10);
-		document.getElementById('ninth').value = res18;
+		document.getElementById('ninth').innerHTML = res18;
 		return res18;
 		}
 
@@ -190,36 +190,36 @@ function matching(res6)
 	{
 		if(result5)
 		{
-		document.getElementById('seventh').value = result5;
-		document.getElementById('eighth').value = "IV";
+		document.getElementById('seventh').innerHTML = result5;
+		document.getElementById('eighth').innerHTML = "IV";
 		var res11 = res6.replace(/[I]{4}/g,"IV");
 		//alert(res10);
-		document.getElementById('ninth').value = res11;
+		document.getElementById('ninth').innerHTML = res11;
 		return res11;
 		}
 		if(result7)
 		{
-		document.getElementById('seventh').value = result7;
-		document.getElementById('eighth').value = "XL";
+		document.getElementById('seventh').innerHTML = result7;
+		document.getElementById('eighth').innerHTML = "XL";
 		var res13 = res6.replace(/[X]{4}/g,"XL");
 		//alert(res10);
-		document.getElementById('ninth').value = res13;
+		document.getElementById('ninth').innerHTML = res13;
 		return res13;
 		}
 		if(result9)
 		{
-		document.getElementById('seventh').value = result9;
-		document.getElementById('eighth').value = "CD";
+		document.getElementById('seventh').innerHTML = result9;
+		document.getElementById('eighth').innerHTML = "CD";
 		var res15 = res6.replace(/[C]{4}/g,"CD");
 		//alert(res10);
-		document.getElementById('ninth').value = res15;
+		document.getElementById('ninth').innerHTML = res15;
 		return res15;
 		}
 
 	}
 	else
 	{
-		document.getElementById('ninth').value = res6;
+		document.getElementById('ninth').innerHTML = res6;
 	}
 	
 	}
@@ -240,7 +240,7 @@ function Sorting(res)
 	}
 	var res6 = teststring;
 	//alert(res6);
-	document.getElementById('sixth').value = res6;//display's sorted value.
+	document.getElementById('sixth').innerHTML = res6;//display's sorted value.
 
 }
 function Subtractives(firstValue,secondValue)
@@ -262,79 +262,79 @@ function Subtractives(firstValue,secondValue)
 		if(cond1)
 		{	
 		var resultf1 = firstValue.replace(/[I][V]/g,"IIII");	
-		document.getElementById('third').value = resultf1;
+		document.getElementById('third').innerHTML = resultf1;
 		//alert(resultf1);
 		}	
 		if(cond3)
 		{	
 		var resultf1 = firstValue.replace(/[I][X]/g,"VIIII");
-		document.getElementById('third').value = resultf1;
+		document.getElementById('third').innerHTML = resultf1;
 		}		
 		if(cond5)
 		{	
 		var resultf1 = firstValue.replace(/[X][L]/g,"XXXX");	
-		document.getElementById('third').value = resultf1;
+		document.getElementById('third').innerHTML = resultf1;
 		}	
 
 		if(cond7)
 		{	
 		var resultf1 = firstValue.replace(/[X][C]/g,"LXXXX");
-		document.getElementById('third').value = resultf1;
+		document.getElementById('third').innerHTML = resultf1;
 		}	
 		if(cond9)
 		{	
 		var resultf1 = firstValue.replace(/[C][D]/g,"CCCC");	
-		document.getElementById('third').value = resultf1;
+		document.getElementById('third').innerHTML = resultf1;
 		}	
 		if(cond11)
 		{	
 		var resultf1 = firstValue.replace(/[C][M]/g,"DCCCC");
-		document.getElementById('third').value = resultf1;
+		document.getElementById('third').innerHTML = resultf1;
 		}	
 	}
 	else
 	{
 		resultf1 = firstValue;
-		document.getElementById('third').value = resultf1;
+		document.getElementById('third').innerHTML = resultf1;
 	}
 	if(cond2 || cond4 || cond6 || cond8 || cond10 || cond12)
 	{
 		if(cond2)
 		{
 		var resultf2 = secondValue.replace(/[I][V]/g,"IIII");	
-		document.getElementById('fourth').value = resultf2;
+		document.getElementById('fourth').innerHTML = resultf2;
 		}
 
 		if(cond4)
 		{
 		var resultf2 = secondValue.replace(/[I][X]/g,"VIIII");
-		document.getElementById('fourth').value = resultf2;
+		document.getElementById('fourth').innerHTML = resultf2;
 		}
 		if(cond6)
 		{
 		var resultf2 = secondValue.replace(/[X][L]/g,"XXXX");
-		document.getElementById('fourth').value = resultf2;
+		document.getElementById('fourth').innerHTML = resultf2;
 		}	
 		if(cond8)
 		{
 		var resultf2 = secondValue.replace(/[X][C]/g,"LXXXX");
-		document.getElementById('fourth').value = resultf2;	
+		document.getElementById('fourth').innerHTML = resultf2;	
 		}
 		if(cond10)
 		{
 		var resultf2 = secondValue.replace(/[C][D]/g,"CCCC");	
-		document.getElementById('fourth').value = resultf2;
+		document.getElementById('fourth').innerHTML = resultf2;
 		}
 		if(cond12)
 		{
 		var resultf2 = secondValue.replace(/[C][M]/g,"DCCCC");
-		document.getElementById('fourth').value = resultf2;	
+		document.getElementById('fourth').innerHTML = resultf2;	
 		}
 	}
 	else
 	{
 		resultf2 = secondValue;
-		document.getElementById('fourth').value = resultf2;
+		document.getElementById('fourth').innerHTML = resultf2;
 	}
 
 

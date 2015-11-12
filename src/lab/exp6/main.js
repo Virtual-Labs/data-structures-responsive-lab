@@ -35,6 +35,7 @@ function config() {
 
 function main_loop() {
   Draw.drawBackground();
+  Experiment.drawGraph();
   Message.draw(); 
   
 }

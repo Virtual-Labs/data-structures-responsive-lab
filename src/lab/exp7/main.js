@@ -36,19 +36,19 @@ function config() {
 
   /* Buttons of the initial state */
   
-  new Button(55, 5, 90, 25, 'Draw Graph', '#008000', '#DDDDDD', function() { Experiment.loadState(DRAWING_STATE); }, 15, '#FFFFFF', INITIAL_STATE, true);
-  new Button(55 + 10 + 90, 5, 95, 25, 'Instructions', '#008000', '#DDDDDD', function() { }, 15, '#FFFFFF', INITIAL_STATE, true);
+  new Button(55, 5, 100, 25, 'Draw Graph', '#3652a4', '#FFFFFF', function() { Experiment.loadState(DRAWING_STATE); }, 15, '#FFFFFF', INITIAL_STATE, true);
+  new Button(55 + 10 + 100, 5, 95, 25, 'Instructions', '#3652a4', '#FFFFFF', function() { }, 15, '#FFFFFF', INITIAL_STATE, true);
 
   /* Buttons of the drawn state */
   //DrawGraph DFS BFS ResetGraph ClearScreen BoardState Instructions
 
-  new Button(55, 5, 90, 25, 'Draw Graph', '#008000', '#DDDDDD', function() { Experiment.loadState(DRAWING_STATE); }, 15, '#FFFFFF', DRAWN_STATE, false);
-  new Button(55 + 1 * 10 + 1 * 90, 5, 90, 25, 'Instructions', '#008000', '#DDDDDD', function() { }, 15, '#FFFFFF', DRAWN_STATE, false);
-  new Button(55 + 2 * 10 + 2 * 90, 5, 90, 25, 'DFS', '#008000', '#DDDDDD', function() { Experiment.loadState(DFS_RUNNING_STATE); }, 15, '#FFFFFF', DRAWN_STATE, false);
-  new Button(55 + 3 * 10 + 3 * 90, 5, 90, 25, 'BFS', '#008000', '#DDDDDD', function() { Experiment.loadState(BFS_RUNNING_STATE); }, 15, '#FFFFFF', DRAWN_STATE, false);
-  new Button(55 + 4 * 10 + 4 * 90, 5, 90, 25, 'ResetGraph', '#008000', '#DDDDDD', function() { Experiment.resetGraph(); }, 15, '#FFFFFF', DRAWN_STATE, false);
-  new Button(55 + 5 * 10 + 5 * 90, 5, 90, 25, 'Clear Screen', '#008000', '#DDDDDD', function() { Experiment.resetGraph(); }, 15, '#FFFFFF', DRAWN_STATE, false);
-  new Button(55 + 6 * 10 + 6 * 90, 5, 90, 25, 'Board State', '#008000', '#DDDDDD', function() { }, 15, '#FFFFFF', DRAWN_STATE, false);
+  new Button(55, 5, 100, 25, 'Draw Graph', '#3652a4', '#FFFFFF', function() { Experiment.loadState(DRAWING_STATE); }, 15, '#FFFFFF', DRAWN_STATE, false);
+  new Button(55 + 1 * 10 + 1 * 100, 5, 100, 25, 'Instructions', '#3652a4', '#FFFFFF', function() { }, 15, '#FFFFFF', DRAWN_STATE, false);
+  new Button(55 + 2 * 10 + 2 * 100, 5, 100, 25, 'DFS', '#3652a4', '#FFFFFF', function() { Experiment.loadState(DFS_RUNNING_STATE); }, 15, '#FFFFFF', DRAWN_STATE, false);
+  new Button(55 + 3 * 10 + 3 * 100, 5, 100, 25, 'BFS', '#3652a4', '#FFFFFF', function() { Experiment.loadState(BFS_RUNNING_STATE); }, 15, '#FFFFFF', DRAWN_STATE, false);
+  new Button(55 + 4 * 10 + 4 * 100, 5, 100, 25, 'ResetGraph', '#3652a4', '#FFFFFF', function() { Experiment.resetGraph(); }, 15, '#FFFFFF', DRAWN_STATE, false);
+  new Button(55 + 5 * 10 + 5 * 100, 5, 100, 25, 'Clear Screen', '#3652a4', '#FFFFFF', function() { Experiment.resetGraph(); }, 15, '#FFFFFF', DRAWN_STATE, false);
+//  new Button(55 + 6 * 10 + 6 * 90, 5, 90, 25, 'Board State', '#008000', '#DDDDDD', function() { }, 15, '#FFFFFF', DRAWN_STATE, false);
 
 }
 
