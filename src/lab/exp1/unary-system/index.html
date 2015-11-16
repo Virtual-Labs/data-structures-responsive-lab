@@ -32,7 +32,7 @@
 
       <div class="row">
           <div class="col-md-4"> 
-            <button class="btn btn-primary btn-lg pull-right" onclick="add(a, b)">Add</button>
+            <button class="btn btn-primary btn-lg pull-right" onclick="add()">Add</button>
           </div>
           <div class="col-md-1"> 
             <button class="btn btn-primary btn-lg " onclick="mul(a, b)">Multiply</button>
@@ -43,14 +43,19 @@
       </div>  
       <hr>
       <div class="row">
-        <div class="col-md-6">
-          <div class="col-md-8 desc">
-            <h5>The Addition of Two Unary Numbers is: </h5>
-          </div>
-          <div class="col-md-4 pull-left result" id="sixth"></div>
-        </div>    
+        <div class="col-md-6" id="val1Res"></div>
+        <div class="col-md-6" id="val2Res"></div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-12" id="labelRes"></div>
+      </div>
+
+      <div class="row">
+        <div id="concatResDiv" class="col-md-12"></div>
       </div>
       <hr>
+      
       <div class="row">
         <div class="col-md-7">
           <div class="col-md-6 desc">

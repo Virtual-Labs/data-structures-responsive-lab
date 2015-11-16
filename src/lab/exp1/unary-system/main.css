@@ -24,3 +24,9 @@ p {
 	color: #3652a4;
 	font-weight: bolder;
 }
+
+#val1Res, #val2Res, #concatResDiv, #labelRes {
+  color: blue;
+  font-size: 20px;
+  margin-top: 6px;
+}

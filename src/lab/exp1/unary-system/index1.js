@@ -1,16 +1,45 @@
-var a;
-var b;
+// function add(a,b)
+// {
+//  a = document.getElementById('val1').value;
+//  b = document.getElementById('val2').value;
 
-function add(a,b)
+//  var res = a.concat(b);
+//  document.getElementById('sixth').innerHTML = res;
+// }
+
+
+var a, b
+function showFistVal()
 {
  a = document.getElementById('first').value;
+ document.getElementById("val1Res").innerHTML = "First number = " + "  " + a;
+ setTimeout(showSecondVal,1000);
+}
+
+function showSecondVal(){
  b = document.getElementById('second').value;
-
- var res = a.concat(b);
- document.getElementById('sixth').innerHTML = res;
-
+ document.getElementById("val2Res").innerHTML = "Second number = " + "  " + b; 
+ setTimeout(label,1000);
  
 }
+
+function label() {
+  document.getElementById('labelRes').innerHTML = "First number is concatinating with second...";
+  setTimeout(concatRes, 1500);
+}
+
+function concatRes(){
+    var res = a.concat(b);
+    document.getElementById("concatResDiv").innerHTML = "Addition of two numbers is:  " + "  " + res;
+}
+
+function add(){
+    setTimeout(showFistVal,1000);
+
+}
+
+
+
 
 function mul(a,b)
 {
