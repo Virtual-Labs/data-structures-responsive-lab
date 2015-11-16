@@ -9,15 +9,13 @@
 
 
 var a, b
-function showFistVal()
+ function showFistVal()
 {
- a = document.getElementById('first').value;
  document.getElementById("val1Res").innerHTML = "First number = " + "  " + a;
  setTimeout(showSecondVal,1000);
 }
 
 function showSecondVal(){
- b = document.getElementById('second').value;
  document.getElementById("val2Res").innerHTML = "Second number = " + "  " + b; 
  setTimeout(label,1000);
  
@@ -34,11 +32,18 @@ function concatRes(){
 }
 
 function add(){
-    setTimeout(showFistVal,1000);
+    a = document.getElementById('first').value;
+    b = document.getElementById('second').value;
 
+    if(/\d1{1}/.test(a) == false || /\d1{1}/.test(b) == false)
+    {
+      alert("please enter unary number");
+    }
+    else
+    {
+      setTimeout(showFistVal,1000);
+    } 
 }
-
-
 
 
 function mul(a,b)
