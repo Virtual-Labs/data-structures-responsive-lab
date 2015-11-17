@@ -1,11 +1,14 @@
-function GraphEdge(u, v ,no) {
+function GraphEdge(u, v ,no, demo) {
 
   this.u = u;
   this.v = v;
   this.no = no;
-
+  this.visi = false;
+  if( ! demo)
+  {
   GraphEdge.allInstances = GraphEdge.allInstances || [];
   GraphEdge.allInstances.push(this);
+  }
   var x1 = GraphNode.allInstances[u].x;
   var y1 = GraphNode.allInstances[u].y;
   var x2 = GraphNode.allInstances[v].x;
@@ -16,9 +19,11 @@ function GraphEdge(u, v ,no) {
   var my2 = (y1 + 4 * y2)/ 5;
   var n1 = this.u - this.v;
   var n2 = this.u + this.v;
+  new GraphMidNode(mx1, my1, n1, this.no);
+  new GraphMidNode(mx2, my2, n2, this.no);
   this.draw = function() {
-    DrawUtil.drawEdge(x1, y1, x2, y2);
-    new GraphMidNode(mx1, my1, n1, this.no);
-    new GraphMidNode(mx2, my2, n2, this.no);
+    DrawUtil.drawEdge(x1, y1, x2, y2, this.visi , '#FFA500');
+ //   new GraphMidNode(mx1, my1, n1, this.no);
+ //   new GraphMidNode(mx2, my2, n2, this.no);
   }
 }

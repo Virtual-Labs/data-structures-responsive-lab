@@ -1,5 +1,5 @@
 
-function GraphMidNode(x, y, number, edgeno)
+function GraphMidNode(x, y, number, edgeno, demo)
 {
  this.x = x;
  this.y = y;
@@ -8,24 +8,28 @@ function GraphMidNode(x, y, number, edgeno)
  this.visited = false;
  // this.com_visited = false;
   
-
+  if( ! demo)
+  {
     GraphMidNode.allInstances = GraphMidNode.allInstances || [];
     GraphMidNode.allInstances.push(this);
+  }
 
  this.draw = function() {
   if(!this.visited)
    {
-         DrawUtil.drawArc(x, y, 4, '#FFAAFF');
+ //        console.log("No No buddy");
+         DrawUtil.drawArc(x, y, 5, '#FFAAFF');
    } 
 
    else
    {
-         DrawUtil.drawArc(x, y, 4, '#00FF00');
+ //        console.log("hey buddy");
+         DrawUtil.drawArc(x, y, 5, '#00FF00');
    }
 }
  
  this.inside = function(x1, y1) {
-    return (Math.sqrt( (x - x1) * (x - x1) + (y - y1) * (y - y1) ) <= 4);
+    return (Math.sqrt( (x - x1) * (x - x1) + (y - y1) * (y - y1) ) <= 5);
   }
 	
 }
