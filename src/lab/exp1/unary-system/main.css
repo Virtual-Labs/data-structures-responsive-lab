@@ -10,23 +10,13 @@ p {
     margin: 1px 0 10px;
 }
 
-/*.reset {
-	margin-left: 5%;
-}*/
-
 .desc{
 	font-family: Calibri;
 }
-
 .result{
-	font-family: Calibri;
-	font-size: x-large;
-	color: #3652a4;
-	font-weight: bolder;
-}
-
-#val1Res, #val2Res, #concatResDiv, #labelRes {
+  font-family: Calibri;
   color: blue;
-  font-size: 20px;
-  margin-top: 6px;
+  font-size: 22px;
+  margin-top: 1%;
+}
 }

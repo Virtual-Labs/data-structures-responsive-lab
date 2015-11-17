@@ -26,7 +26,7 @@ function add(){
     a = document.getElementById('first').value;
     b = document.getElementById('second').value;
 
-    if(/\d1{1}/.test(a) == false || /\d1{1}/.test(b) == false)
+    if(/^[1]+$/.test(a) ==false || /^[1]+$/.test(b) == false)
     {
       alert("please enter unary number");
     }
@@ -36,31 +36,55 @@ function add(){
     } 
 }
 
+var  a, b;
+var count;
 
-function mul(a,b)
+function mul()
 {
   a = document.getElementById('first').value;
   b = document.getElementById('second').value;
-
-  document.getElementById('third').innerHTML = a.length;
-  document.getElementById('fourth').innerHTML= b.length;
-
-    var count = b.length;
-    console.log("count" + count)
-    document.getElementById('fifth').innerHTML = count;
-     var res = ' ';
-     while(count != 0)
-     {
-        res += a;
-        console.log("result is: " + res);
-        count--;
-     }
-     document.getElementById('seventh').innerHTML = res;
+  if(/^[1]+$/.test(a) ==false || /^[1]+$/.test(b) == false)
+  {
+    alert("please enter valid unary number");
   }
+  else{
+    setTimeout(showMainLabel, 100);
+  }
+}
+
+function showMainLabel(){
+  document.getElementById("mulLabel").innerHTML = "Take a minimum count and perform repeated addition until count becomes 1.. ";
+  document.getElementById('val1Res').innerHTML = "First Value: " + a;
+  document.getElementById('val2Res').innerHTML= "First Value: " + b;
+  document.getElementById('mulCount1').innerHTML = "Count: " + a.length;
+  document.getElementById('mulCount2').innerHTML= "Count: " + b.length;
+  setTimeout(mulLogic, 1000);
+  count = b.length;
+  mulLogic();
+}
+
+var res = '';
+function mulLogic() {  
+    if (count > 0)
+    {
+      res += a;
+      document.getElementById("mulCount").innerHTML = "Count: " + count;
+      document.getElementById("mulRes").innerHTML = res;
+      count--;
+    }
+    else{
+      printRes();
+    }
+    setTimeout(mulLogic, 2000);
+}
+
+function printRes()
+{
+    document.getElementById("labelRes").innerHTML = "Multiplication of two unary number is = " + res;
+}
 
 function reset(){
-  location.reload();
-  // document.getElementById('first').value = ""
-  // document.getElementById('second').value = ""
- 
-} 
+   location.reload();
+}
+
+
