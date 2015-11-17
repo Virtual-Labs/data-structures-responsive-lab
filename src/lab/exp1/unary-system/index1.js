@@ -26,7 +26,7 @@ function add(){
     a = document.getElementById('first').value;
     b = document.getElementById('second').value;
 
-    if(/\d1{1}/.test(a) == false || /\d1{1}/.test(b) == false)
+    if(/^[1]+$/.test(a) ==false || /^[1]+$/.test(b) == false)
     {
       alert("please enter unary number");
     }
@@ -37,11 +37,19 @@ function add(){
 }
 
 var  a, b;
+var count;
+
 function mul()
 {
   a = document.getElementById('first').value;
   b = document.getElementById('second').value;
-  setTimeout(showMainLabel, 100);
+  if(/^[1]+$/.test(a) ==false || /^[1]+$/.test(b) == false)
+  {
+    alert("please enter valid unary number");
+  }
+  else{
+    setTimeout(showMainLabel, 100);
+  }
 }
 
 function showMainLabel(){
@@ -51,27 +59,32 @@ function showMainLabel(){
   document.getElementById('mulCount1').innerHTML = "Count: " + a.length;
   document.getElementById('mulCount2').innerHTML= "Count: " + b.length;
   setTimeout(mulLogic, 1000);
+  count = b.length;
+  mulLogic();
 }
 
-function mulLogic() {
-    
-    var count = b.length;
-    var res = ' ';
+var res = '';
+function mulLogic() {  
+    if (count > 0)
+    {
+      res += a;
+      document.getElementById("mulCount").innerHTML = "Count: " + count;
+      document.getElementById("mulRes").innerHTML = res;
+      count--;
+    }
+    else{
+      printRes();
+    }
+    setTimeout(mulLogic, 2000);
+}
 
-     while(count != 0)
-     {
-        res += a;
-        document.getElementById("mulCount").innerHTML = "Count is: " + count; 
-        console.log(res)
-        console.log(count);
-        count--;
-
-     }     
-     document.getElementById("mulRes").innerHTML = res;
-     document.getElementById("labelRes").innerHTML = "Multiplication of two unary number is = " + res;
-   }
-
+function printRes()
+{
+    document.getElementById("labelRes").innerHTML = "Multiplication of two unary number is = " + res;
+}
 
 function reset(){
-  location.reload();
-} 
+   location.reload();
+}
+
+
