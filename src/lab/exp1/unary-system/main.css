@@ -19,4 +19,11 @@ p {
   font-size: 22px;
   margin-top: 1%;
 }
+
+#mulCount, #mulRes, #labelRes{
+  color: red; 
+ /* font-family: Calibri;
+  font-size: 22px;
+  margin-top: 1%;*/
 }
+
