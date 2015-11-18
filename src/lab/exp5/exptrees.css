@@ -1,0 +1,152 @@
+.myBox {
+   
+    width:100px;
+    position:relative;
+    bottom:-100px;
+}
+form{
+	border-style:solid;
+    border-width:1px;	
+    border-color:#6c6c46;
+    background-color: #FFFFFF;
+}
+.box
+{
+
+height:280px;
+width:290px;
+border-radius:10px;
+position:relative;
+top:80px;
+left:30%;
+} 
+
+.display
+{
+background-color:#f2ffcc;
+width:0px;
+position:relative;
+left:4px;
+top:2px;
+height:20px;
+}
+.display input
+{
+position:relative;
+left:12px;
+top:2px;
+height:35px;
+width: 270px;
+color:black;
+background-color:#FFFFFF;
+font-size:21px;
+text-align:right;
+} 
+
+.keys
+{
+position:relative;
+top:25px;
+}
+table.highlight:hover{
+
+	color:#80e0ff;
+}
+.button
+{
+width:50px;
+height:50px;
+border:none;
+border-radius:8px;
+margin-left:15px;
+cursor:pointer;
+border-top:2px solid transparent;
+}
+
+.button.white
+{
+color:black;
+background-color:#e6e6e6;
+ border-style:solid;
+    border-width:1px;	
+    border-color:#6c6c46;
+width:40px;
+height: 30px;
+}
+.button.grey
+{
+color:black;
+background-color:#e6e6e6;
+ border-style:solid;
+    border-width:1px;	
+    border-color:#6c6c46;
+width:100px;
+height: 30px;
+}
+
+.button.black
+{
+color:white;
+background-color: #000000;
+border-bottom:black 2px solid;
+border-top:2px FF9933 solid;
+width:100px;
+height: 30px;
+}
+
+.gray:active
+{
+border-top:black 2px solid;
+border-bottom:2px #66ff66 solid;
+}
+.grey:active
+{
+border-top:black 2px solid;
+border-bottom:2px #66ff66 solid;
+}
+.pink:active
+{
+border-top:black 2px solid;
+border-bottom:#ff4561 2px solid;
+}
+.black:active
+{
+border-top:black 2px solid;
+border-bottom:#303030 2px solid;
+}
+.orange:active
+{
+border-top:black 2px solid;
+border-bottom:FF9933 2px solid;
+}
+
+p
+{
+line-height:5px;
+}
+table.one{
+	border-width: 2px ;
+	text-align: right ;
+}
+table.two , td{
+	border-width: 2px ;
+	vertical-align: left;
+}
+
+table.box{
+	background-color: black;
+	color: white ;
+}
+#myDIV {
+    position: absolute;
+    align-content:space-around;
+}
+input.button:hover {
+    color: #ff0000;
+} 
+input.field{
+    background-color:#e6e6e6;
+    border-style:solid;
+    border-width:1px;	
+    border-color:#6c6c46;
+}
