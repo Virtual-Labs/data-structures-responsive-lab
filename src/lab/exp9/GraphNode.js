@@ -6,6 +6,9 @@ function GraphNode(x, y, number, demo) {
   this.number = number;
   this.partially_visited = true;
   this.completely_visited = false;
+  this.adjList = [] 
+  this.adjMatrix = [] 
+
 
   if( ! demo) {
     GraphNode.allInstances = GraphNode.allInstances || [];
