@@ -2,7 +2,7 @@ window.onload = init;
 
 var temp = [];
 var cur = [];
-
+var Running = 1;
 function allOk(){
 
   for(var i=0;i<7;i++){
@@ -77,122 +77,91 @@ function init(){
     TA[i].render(ctx, 250+i*100, 200, 90, 60, "#CCCCCC", temp[i]);
   }
 
+  InsertionSort();
 
-  function Animate(){
+  window.setTimeout(function() {
+    window.setInterval(draw, 30);
+  }, 30);
+
+}
+
+function draw() {
     ctx.clearRect(0, 0, cW, cH);
     for(var i=0;i<7;i++){
       TA[i].render(ctx,TA[i].x,TA[i].y,TA[i].w,TA[i].h,TA[i].clr,TA[i].Num);
-      TA[i].y++;
-      if(TA[i].y>300){
-        TA[i].y = 200;		
-      }
     }
-  }
+}
 
-  clearInterval(animateInterval);
 
-  //animateInterval = setInterval(Animate, 30);
+function Gogreen(K){
+  TA[K].clr = "green";
+}
 
-  clearInterval(animateInterval);
-
-  function AnimateIthBlock(K){
-    ctx.clearRect(0, 0, cW, cH);
-    TA[K].y+=1;
-    for(var i=0;i<7;i++){
-      TA[i].render(ctx,TA[i].x,TA[i].y,TA[i].w,TA[i].h,TA[i].clr,TA[i].Num);
-    }
-    console.log(TA[K].y);
-    if(TA[K].y>400)
-      TA[K].y = 200;	
-  }
-
-  //animateInterval = setInterval(function() {AnimateIthBlock(1);},30);*/
+function goRed(K){
+  TA[K].clr = "red";
 }
 
 // for Restoring previous color changes
-
 function RestoreColor(K){
   TA[K].clr = "#CCCCCC";
-  //setTimeout(function(){ TA[K].clr = "#CCCCCC"; }, 500);
 }
 
 
 function TranslateUp(K,Y){
-  console.log(TA[K].y, Y);
-
-  ctx.clearRect(0, 0, cW, cH);
   if(TA[K].y<=Y){
     RestoreColor(K);
     clearInterval(animateInterval);
   }
 
   TA[K].y--;
-  for(var i=0;i<7;i++){
-    TA[i].render(ctx,TA[i].x,TA[i].y,TA[i].w,TA[i].h,TA[i].clr,TA[i].Num);
-  }
 }
 
 function TranslateRight(K,X){
-  console.log(TA[K].x,X);
 
-  ctx.clearRect(0,0,cW,cH);
   if(TA[K].x>=X){
     clearInterval(animateInterval);
     RestoreColor(K);
   }
 
   TA[K].x++;
-  for(var i=0;i<7;i++){
-    TA[i].render(ctx,TA[i].x,TA[i].y,TA[i].w,TA[i].h,TA[i].clr,TA[i].Num);
-  }
 }
 
 function TranslateDown(K,Y){
-  console.log(TA[K].y, Y);
-
-  ctx.clearRect(0, 0, cW, cH);
   if(TA[K].y>=Y){
     clearInterval(animateInterval);
     RestoreColor(K);
   }
 
   TA[K].y++;
-  for(var i=0;i<7;i++){
-    TA[i].render(ctx,TA[i].x,TA[i].y,TA[i].w,TA[i].h,TA[i].clr,TA[i].Num);
-  }
 }
 
 function TranslateLeft(K,X){
-  console.log(TA[K].x,X);
 
-  ctx.clearRect(0,0,cW,cH);
   if(TA[K].x<=X){
     clearInterval(animateInterval);
     RestoreColor(K);
   }
 
   TA[K].x--;
-  for(var i=0;i<7;i++){
-    TA[i].render(ctx,TA[i].x,TA[i].y,TA[i].w,TA[i].h,TA[i].clr,TA[i].Num);
-  }
 }
+
 
 function MoveInDir(x, y){
   var X = TA[x].x;
   var Y = TA[x].y;
-  console.log(Y,y);
   TA[x].clr = "green";
-  switch(y){
-    case "0":
+  y = parseInt(y);
+  switch(y) {
+    case 0:
       animateInterval = setInterval( function() {TranslateUp(x,Y-70);},30);
       break;
-    case "1":
+    case 1:
       animateInterval = setInterval( function() {TranslateRight(x,X+100);},30);
       break;
-    case "2":
+    case 2:
       animateInterval = setInterval( function() {TranslateDown(x,Y+70);},30);
       break;
-    case "3":
+    case 3:
       animateInterval = setInterval( function() {TranslateLeft(x,X-100);},30);
       break;
   }
@@ -204,9 +173,26 @@ function move(){
   var Dir = document.getElementById('Dir').value;
   console.log(whichBlock);
   console.log(Dir);
-
   MoveInDir(whichBlock,Dir);
 }
 
 
+function InsertionSort(){
+  console.log("Insertion sort Starts here");
+  var moveBlockId = 0;
+  
+  var intervalId = window.setInterval(function() {
+    
+    var NewI = window.setInterval(function() {
+      if(TA[moveBlockId].y>=200)clearInterval(NewI);
+      MoveInDir(moveBlockId-1,2);
+    },3000);
 
+    if(moveBlockId == 8) clearInterval(intervalId);
+    Gogreen(moveBlockId);
+    MoveInDir(moveBlockId, 0);
+    moveBlockId++;
+  }, 6000);
+
+
+}
