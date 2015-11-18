@@ -17,54 +17,96 @@
     <div class="container">
      <div class="row">
         <div class="col-md-5">
-          <div class="desc"><h5> Enter the first unary value: </h5></div><input type="text" class="form-control" id="first" placeholder="Enter first unary value">
+          <div class="desc">
+            <h5> Enter the first unary value: </h5>
+          </div>
+          <input type="text" class="form-control" id="first" placeholder="Enter first unary value">
         </div>
         <div class="col-md-5">
-          <div class="desc"><h5> Enter second Unary value: </h5> </div><input type="text" class="form-control" id="second" placeholder="Enter second unary value">
+          <div class="desc">
+            <h5> Enter second Unary value: </h5>
+          </div>
+          <input type="text" class="form-control" id="second" placeholder="Enter second unary value">
         </div>
       </div><br>
 
       <div class="row">
           <div class="col-md-4"> 
-            <button class="btn btn-primary btn-lg pull-right" onclick="add(a, b)">Add</button>
-          </div>
-          <div class="col-md-1"> 
-            <button class="btn btn-primary btn-lg " onclick="mul(a, b)">Multiply</button>
+            <button class="btn btn-primary btn-lg" onclick="add()">Add</button>
           </div>
           <div class="col-md-4"> 
-            <button class="btn btn-primary btn-lg pull-left reset" onclick="reset()">Reset</button>
+            <button class="btn btn-primary btn-lg " onclick="mul()">Multiply</button>
+          </div>
+          <div class="col-md-4"> 
+            <button class="btn btn-primary btn-lg " onclick="reset()">Reset</button>
           </div>
       </div>  
       <hr>
+     
+
       <div class="row">
-        <div class="col-md-6">
-          <div class="col-md-8 desc"><h5>The Addition of Two Unary Numbers is: </h5></div><div class="col-md-4 pull-left result" id="sixth"></div>
-        </div>    
+        <div class="col-md-6 result" id="val1Res"></div>
+        <div class="col-md-6 result" id="val2Res"></div>
       </div>
-      <hr>
+
       <div class="row">
+        <div class="col-md-6 result" id="mulCount1"></div>
+        <div class="col-md-6 result" id="mulCount2"></div>
+      </div>
+
+       <div class="row">
+        <div class="col-md-12 result" id="mulLabel"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 result" id="mulCount"></div>
+        <div class="col-md-8 result" id="mulRes"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 result" id="labelRes"></div>
+      </div>
+   
+
+      <div class="row">
+        <div id="concatResDiv" class="col-md-12 result"></div>
+      </div>
+      
+      <!-- <div class="row">
         <div class="col-md-7">
-          <div class="col-md-6 desc"><h5>The Multiplication of Two Unary Numbers is: </h5></div><div class="col-md-6 pull-left result" id="seventh"></div>
+          <div class="col-md-6 desc">
+            <h5>The Multiplication of Two Unary Numbers is: </h5>
+          </div>
+          <div class="col-md-6 pull-left result" id="seventh"></div>
         </div>
       </div>
       <hr>
 
       <div class="row">
         <div class="col-md-6">
-          <div class="col-md-6 desc"><h5>Count of the First Unary Number: </h5></div><div class="col-md-6 pull-left result" id="third"></div>
+          <div class="col-md-6 desc">
+            <h5>Count of the First Unary Number: </h5>
+          </div>
+          <div class="col-md-6 pull-left result" id="third"></div>
         </div>
 
         <div class="col-md-6">
-          <div class="col-md-6 desc"><h5>Count of the second Unary Number: </h5></div><div class="col-md-6 pull-left result" id="fourth"></div>
+          <div class="col-md-6 desc">
+            <h5>Count of the second Unary Number: </h5>
+          </div>
+          <div class="col-md-6 pull-left result" id="fourth"></div>
         </div>
         </div>  
         <br>
       <div class="row">
         <div class="col-md-12">
-          <div class="col-md-6 desc"><h5>Take the minimum count and perform the repeated additions until count becomes 1: </h5></div> <div class="col-md-6 result" id="fifth"></div>
+          <div class="col-md-6 desc">
+            <h5>Take the minimum count and perform the repeated additions until count becomes 1: </h5>
+          </div> 
+          <div class="col-md-6 result" id="fifth"></div>
         </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </body>
   <script src = "index1.js"></script>

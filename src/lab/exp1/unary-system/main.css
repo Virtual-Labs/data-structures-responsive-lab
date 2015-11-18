@@ -10,17 +10,20 @@ p {
     margin: 1px 0 10px;
 }
 
-.reset {
-	margin-left: 5%;
-}
-
 .desc{
 	font-family: Calibri;
 }
-
 .result{
-	font-family: Calibri;
-	font-size: x-large;
-	color: #3652a4;
-	font-weight: bolder;
+  font-family: Calibri;
+  color: blue;
+  font-size: 22px;
+  margin-top: 1%;
 }
+
+#mulCount, #mulRes, #labelRes{
+  color: red; 
+ /* font-family: Calibri;
+  font-size: 22px;
+  margin-top: 1%;*/
+}
+
