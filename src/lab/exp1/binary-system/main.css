@@ -69,3 +69,7 @@ display:none;
 .some1 {
   text-align: right;
 }
+
+#mul-res{
+  width: 50%;
+}
