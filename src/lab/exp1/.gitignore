@@ -1,0 +1,7 @@
+# Defaults start from here.
+*.py[cod]
+*.swp
+*~
+*#*
+.*#*
+
