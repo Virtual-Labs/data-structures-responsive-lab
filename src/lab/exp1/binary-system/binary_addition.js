@@ -11,6 +11,8 @@ function add() {
     addit();
 
   function addit(){
+  $("#mul-res").hide();
+  $('#addition-res').show(); // To hide all other contents
   if(a.length < b.length) {
     var diff = b.length - a.length;
     a = prepend_zeros(diff, a);
@@ -23,7 +25,8 @@ function add() {
   carry = ""; //equivalent to no carry
   $('#num1').html(a);
   $('#num2').html(b);
-  $('#result').html('');
+  $('#num2').append('<hr>');
+  $('#result').html();
   place_arrow();
   add_digit();/^[01]+$/.test(a) == false
 }
@@ -49,7 +52,6 @@ function add_digit() {
       res = newres;
     }
     $('#result').prepend(res);
-
     $('#carry').html('Carry: ' + carry);
     cur_digit -= 1;
     if(cur_digit >= 0) {
@@ -98,19 +100,21 @@ var count, interm_muls;
 function mul() {
   // $( "#addition" ).hide();  
   // document.getElementById("addition" ).className = hide;
-
   interm_muls = [];
   a = $('#ip-num1').val();
   b = $('#ip-num2').val();
   console.log(a, b);
   $('#firstValue').html("First number: " + a);
-  $('#secondValue').html("First number: " + b);
-  $('#secondValue').append('<hr>')
+  $('#secondValue').html("First number:   " + b);
+  $('#hrAfterInpt').append('<hr>')
   //console.log(b.length)
   mul_logic(b.length);
 }
 
+
 function mul_logic(i) {
+   $('#addition-res').hide(); // To hide all other contents
+  $("#mul-res").show();
   if(i == 0) {
     finalRes();
     return;
@@ -118,8 +122,13 @@ function mul_logic(i) {
   var res = "";
   // console.log('iteration', i);
   // console.log('array index', i-1);
+  
   var digit = b[i-1];
-  // console.log("digit is: ", + digit);
+  // digit.className="highlight"
+  $( "digit" ).addClass( "highlight" );
+
+  console.log("digit is: ", + digit);
+  // digit.style.color = 'red';
 
 
   if(digit == 0) {
@@ -138,7 +147,7 @@ function mul_logic(i) {
   res += makeZeros(no_of_zeros);
   console.log('final res', res);
   // append the intermediate mul to the display
-  $('#mul').append(res + '<br>');
+  $('#mul-animation').append(res + '<br>');
   // also push it to an array for final addition later
   interm_muls.push(res);
   // call itself again after 2 secs
@@ -153,8 +162,8 @@ function finalRes() {
     res = add_binary_string(res, interm_muls[i]);
   }
   console.log('final final res', res);
-  $('#mul').append('<hr>');
-  $('#mul').append(res + '<br>');
+  $('#hrBeforeRes').append('<hr>');
+  $('#mulFinalRes').append("Multiplication of two numbers is:   " +  res);
 }
  
 function makeZeros(n) {

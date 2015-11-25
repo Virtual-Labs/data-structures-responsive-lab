@@ -46,10 +46,12 @@ p {
   font-family: Calibri;
 }
 
-#mul {
+.animation_mul {
   text-align: right;
   color: blue; 
-  font-size: 2em; 
+  font-size: 23px; 
+  font-family: Calibri;
+
 
 }
 
@@ -58,6 +60,12 @@ p {
   display: none;
 }
 
+.highlight{
+  color: red;
+}
 .hide {
 display:none;
+}
+.some1 {
+  text-align: right;
 }
