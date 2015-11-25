@@ -28,12 +28,14 @@
             <button class="btn btn-primary btn-lg pull-right" onclick="add()">Add</button>
           </div>
           <div class="col-md-5"> 
-            <button class="btn btn-primary btn-lg pull-left" onclick="multiplication(a,b)">Multiply</button>
+            <button class="btn btn-primary btn-lg pull-left" onclick="mul()">Multiply</button>
           </div>
       </div><br>
 
 
-      <div class="row" style="border: 1px solid #ccc">
+
+
+      <div class="row">
         <div class="col-md-6"> 
           <div class="row" id="arrow">
             <div class="line"></div>
@@ -45,15 +47,38 @@
           <div class="row">
             <div class="nums" id="num2"></div>
           </div>
-          <hr> 
           <div class="row">
             <div class="nums" id="result"></div>
           </div>
         </div>
-        <div class="col-md-6 some">
-          <div class="col-md-3 some">Carry:</div>
+        <div class="col-md-4 some">
+          <div class="col-md-3 some" id="carry1"></div>
           <div class="col-md-9 some" id="carry"></div>
         </div>
+
+       
+
+      <div class="row">
+        <div class="col-md-6"> 
+          <div class="row" id="arrow">
+            <div class="line"></div>
+            <div class="arrow-head"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row desc" id="mul">
+        <div class="col-md-6 mul" id="firstValue"></div>
+        <div class="col-md-6 mul" id="secondValue"></div>
+      </div>
+      <div class="row mul desc" id="divider">
+        <!-- <div class="col-md-12"> </div> -->
+      </div>
+       <div class="row"  id="mul-process">
+          <div class="col-md-12" id="mul"></div>
+        </div>
+
+
       </div>  
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
