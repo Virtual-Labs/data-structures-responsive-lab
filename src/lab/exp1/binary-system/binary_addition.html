@@ -49,7 +49,7 @@
               <div class="nums" id="num2"></div>
             </div>
             <div class="row">
-              <div class="nums some1" id="result"></div>
+              <div class="nums" id="result"></div>
             </div>
             <div class="row animation_mul">
               <div class="col-md-12" id="res-add"></div>
@@ -60,35 +60,47 @@
             <div class="col-md-9 some" id="carry"></div>
           </div>
         </div>
+        <div class="row animation_mul">
+          <div class="col-md-12" id="addFinalRes"></div>
+        </div>
+
       </div>
 
        
       <div class="container" id="mul-res">
+        <!-- first num -->
         <div class="row">
-          <div class="col-md-6"> 
-            <div class="row" id="arrow">
+          <div class="nums" id="firstValue"></div>
+        </div>
+        <!-- arrow div -->
+        <div class="row">
+          <div class="col-md-12"> 
+            <div class="row" id="arrow-mul">
               <div class="line"></div>
               <div class="arrow-head"></div>
             </div>
           </div>
         </div>
-
-        <div class="row animation_mul" id="mul">
-          <div class="col-md-6 mul" id="firstValue"></div>
-          <div class="col-md-6 mul" id="secondValue"></div>
-        </div>
-
+        <!-- second num -->
         <div class="row">
-          <div class="col-md-12" id="hrAfterInpt"></div>
+          <div class="nums" id="secondValue"></div>
         </div>
+        <!-- hr -->
+        <div class="row" id="hrAfterInpt"></div>
+        <!-- animation results -->
+        <div class="row nums">
+          <div id="mul-animation"></div>
+        </div>
+        <!-- hr -->
+        <div class="row" id="hrBeforeRes"></div>
+        <!-- result div -->
+        <div class="row nums">
+          <div id="mul-result"></div>
+        </div>
+         <!-- hr -->
+        <div class="row" id="hr-before-main-res"></div>
 
-        <div class="row animation_mul" id="mul-animation"></div>
-
-        <div class="row">
-          <div class="col-md-12" id="hrBeforeRes"></div>
-        </div>      
-
-        <div class="row animation_mul highlight" id="" >
+        <div class="row animation_mul">
           <div class="col-md-12" id="mulFinalRes"></div>
         </div>
       </div>

@@ -4,13 +4,15 @@ function add() {
   a = $('#ip-num1').val();
   b = $('#ip-num2').val();
 
-  // TODO: validate if numbers..
-  if (/^[01]+$/.test(a) ==false || /^[01]+$/.test(b) == false)
+  if (/^[01]+$/.test(a) ==false || /^[01]+$/.test(b) == false) {
     alert("Enter binary numbers");
-  else 
+  }
+  else {
     addit();
+  }
+}
 
-  function addit(){
+function addit() {
   $("#mul-res").hide();
   $('#addition-res').show(); // To hide all other contents
   if(a.length < b.length) {
@@ -28,9 +30,8 @@ function add() {
   $('#num2').append('<hr>');
   $('#result').html();
   place_arrow();
-  add_digit();/^[01]+$/.test(a) == false
+  add_digit();
 }
-};  
 
 function add_digit() {
   console.log('cur digit index:', cur_digit);
@@ -84,6 +85,7 @@ function place_arrow() {
   $('#arrow').css('left', (wd - 20) + 'px');
   $('#arrow').show();
 }
+
 function move_arrow() {
   $('#arrow').animate({
     left: "-=15px"
@@ -95,52 +97,59 @@ function move_arrow() {
   });
 }
 
+
+/* code related to binary multiplication */
+
 var count, interm_muls;
 
 function mul() {
-  // $( "#addition" ).hide();  
-  // document.getElementById("addition" ).className = hide;
+
   interm_muls = [];
+  $('#addition-res').hide(); // To hide all other contents
+  $("#mul-res").show();
+  $('#mul-animation').html('');
+  $('#mul-result').html('');
+  $('#mulFinalRes').html('');
   a = $('#ip-num1').val();
   b = $('#ip-num2').val();
-  console.log(a, b);
-  $('#firstValue').html("First number: " + a);
-  $('#secondValue').html("First number:   " + b);
-  $('#hrAfterInpt').append('<hr>')
+  if (/^[01]+$/.test(a) ==false || /^[01]+$/.test(b) == false) {
+    alert("Enter binary numbers");
+  }
+  else {
+    console.log(a, b);
+    $('#firstValue').html(a);
+    $('#secondValue').html(b);
+
+   
+
+  //set width of #mul-animation
+  // good width = (first num width + sec num width) - 1 digit width
+  // 15 is no of pixels taken by one digit in the current style!!!
+  var good_width = $('#firstValue').width() + $('#secondValue').width() - 15;
+  console.log('good width', good_width);
+  $('#mul-animation').width(good_width);
+
+  $('#hrAfterInpt').html('<hr>')
   //console.log(b.length)
+  place_arrow_mul();
   mul_logic(b.length);
+}
 }
 
 
 function mul_logic(i) {
-   $('#addition-res').hide(); // To hide all other contents
-  $("#mul-res").show();
+
   if(i == 0) {
     finalRes();
     return;
   }
   var res = "";
-  // console.log('iteration', i);
-  // console.log('array index', i-1);
-  
   var digit = b[i-1];
-  // digit.className="highlight"
-  $( "digit" ).addClass( "highlight" );
-
-  console.log("digit is: ", + digit);
-  // digit.style.color = 'red';
-
-
   if(digit == 0) {
-    // console.log("Digit is",+ some)
-    // console.log("a.lenght", + a.length);
-    //"0".repeat(a.length);
     res = makeZeros(a.length);
-    // console.log('res is', res);
   }    
   else {
     res = a;
-    // console.log('res is', res);
   }
   // append zeros at the end for the position at the multiplication
   var no_of_zeros = b.length - i;
@@ -150,10 +159,14 @@ function mul_logic(i) {
   $('#mul-animation').append(res + '<br>');
   // also push it to an array for final addition later
   interm_muls.push(res);
+
+  // move the arrow and the after the arrow move that func will call this func
+  // again
+  move_arrow_mul(i);
   // call itself again after 2 secs
-  setTimeout(function () {
+  /*setTimeout(function () {
     mul_logic(i-1);
-  }, 2000);
+  }, 2000);*/
 }
 
 function finalRes() {
@@ -162,11 +175,37 @@ function finalRes() {
     res = add_binary_string(res, interm_muls[i]);
   }
   console.log('final final res', res);
-  $('#hrBeforeRes').append('<hr>');
-  $('#mulFinalRes').append("Multiplication of two numbers is:   " +  res);
+  $('#hrBeforeRes').html('<hr>');
+  $('#mul-result').html(res);
+  $('#hr-before-main-res').html('<hr>');
+  $('#mulFinalRes').html("Multiplication of two numbers is: " +  res);
 }
  
 function makeZeros(n) {
   return "0".repeat(n);
 }
-    
+
+function place_arrow_mul() {
+  var wd = $('#secondValue').css('width');
+  wd = parseFloat(wd, 10);
+  console.log('width of num box', wd);
+  $('#arrow-mul').css('left', (wd - 20) + 'px');
+  //$('#arrow-mul').css('right', '10px');
+  $('#arrow-mul').show();
+}
+
+function move_arrow_mul(i) {
+  if(i-1 == 0) {
+      mul_logic(i-1);
+      return;
+  }
+  $('#arrow-mul').animate({
+    left: "-=15px"
+  }, {
+    duration: 2000,
+    complete: function() {
+      mul_logic(i-1);
+    }
+  });
+}
+

@@ -4,10 +4,16 @@
   display: inline-block;
 }
 
-#arrow {
+#arrow  {
   display: none;
   position: relative;
 }
+
+#arrow-mul {
+  display: none;
+  position: relative;
+}
+
 .arrow-head {
   width: 0px;
   height: 0px;
@@ -15,6 +21,7 @@
   border-right: 10px solid transparent;
   border-top: 10px solid #000;
 }
+
 .line {
   position: relative;
   left: 8px;
@@ -22,6 +29,7 @@
   width: 5px;
   background-color: #000;
 }
+
 .some {
   font-size: x-large;
   color: #3652a4;
@@ -47,12 +55,9 @@ p {
 }
 
 .animation_mul {
-  text-align: right;
   color: blue; 
   font-size: 23px; 
   font-family: Calibri;
-
-
 }
 
 .addition, .multiplication {
@@ -60,16 +65,6 @@ p {
   display: none;
 }
 
-.highlight{
-  color: red;
-}
-.hide {
-display:none;
-}
-.some1 {
+#mul-animation {
   text-align: right;
-}
-
-#mul-res{
-  width: 50%;
 }
