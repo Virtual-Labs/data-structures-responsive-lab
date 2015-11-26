@@ -7,28 +7,39 @@ var res6 = new Array();
 var res7 = new Array();
 var res8 = new Array();
 var romanNumeral,decimal;
-function add(first,second)
+var firstValue; 
+var secondValue;
+var thirdValue; 
+var fourthValue;				
+function add(first, second)
 {
-	var firstValue = document.getElementById('first').value.toUpperCase();
-	var secondValue = document.getElementById('second').value.toUpperCase();
-	 	
-	Subtractives(firstValue,secondValue);
-	var thirdValue = document.getElementById('third').innerHTML;
-	var fourthValue = document.getElementById('fourth').innerHTML;
+	firstValue = document.getElementById('first').value.toUpperCase();
+	secondValue = document.getElementById('second').value.toUpperCase();
+	showSecond();
+}
 
+function showSecond(f) {
+	Subtractives(firstValue,secondValue);
+	thirdValue = document.getElementById('third').innerHTML;
+	fourthValue = document.getElementById('fourth').innerHTML;
+	setTimeout(showFifth, 1000);
+}
+
+function showFifth() {
 	var res = thirdValue.concat(fourthValue);
 	document.getElementById('fifth').innerHTML = res;//display's concatinated value.
 	
 	Sorting(res);
 	var res6 = document.getElementById('sixth').innerHTML
+
 	
 	var partialresult1 = matching(res6);
 	//alert(partialresult1);
 	var partialresult2 = matching(partialresult1);
 	//alert(partialresult2);
+}	
 	
-	
- }
+ 
 function mul(first,second)
 {
 	var firstValue = document.getElementById('first').value.toUpperCase();
