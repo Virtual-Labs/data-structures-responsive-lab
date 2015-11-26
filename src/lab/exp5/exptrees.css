@@ -21,28 +21,6 @@ top:80px;
 left:30%;
 } 
 
-.display
-{
-background-color:#f2ffcc;
-width:0px;
-position:relative;
-left:4px;
-top:2px;
-height:20px;
-}
-.display input
-{
-position:relative;
-left:12px;
-top:2px;
-height:35px;
-width: 270px;
-color:black;
-background-color:#FFFFFF;
-font-size:21px;
-text-align:right;
-} 
-
 .keys
 {
 position:relative;
@@ -93,60 +71,36 @@ border-top:2px FF9933 solid;
 width:100px;
 height: 30px;
 }
-
-.gray:active
-{
-border-top:black 2px solid;
-border-bottom:2px #66ff66 solid;
-}
-.grey:active
-{
-border-top:black 2px solid;
-border-bottom:2px #66ff66 solid;
-}
-.pink:active
-{
-border-top:black 2px solid;
-border-bottom:#ff4561 2px solid;
-}
-.black:active
-{
-border-top:black 2px solid;
-border-bottom:#303030 2px solid;
-}
-.orange:active
-{
-border-top:black 2px solid;
-border-bottom:FF9933 2px solid;
-}
-
-p
-{
-line-height:5px;
-}
-table.one{
-	border-width: 2px ;
-	text-align: right ;
-}
-table.two , td{
-	border-width: 2px ;
-	vertical-align: left;
-}
-
-table.box{
-	background-color: black;
-	color: white ;
+input.white{
+  background-color:#e6e6e6;
+ border-style:solid;
+    border-width:1px;   
+    border-color:#6c6c46;
+width:100px;
+height: 30px; 
 }
 #myDIV {
+    border-color: #00bfff ;
     position: absolute;
     align-content:space-around;
 }
 input.button:hover {
-    color: #ff0000;
+    background-color: #999999 ;
+    color: white;
+    border-color: #00bfff ;
 } 
-input.field{
+input.white:hover {
+    border-color: #00bfff ;
+    
+}
+input.textfield:hover{
     background-color:#e6e6e6;
     border-style:solid;
     border-width:1px;	
     border-color:#6c6c46;
 }
+
+/*#myDIV:hover {
+    border-collapse: collapse;
+   }*/
+  

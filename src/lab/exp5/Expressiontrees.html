@@ -1,33 +1,78 @@
-<html>
+<!Doctype html>
+<html lang="en">
 <head>
-    <title>expression tree</title>
-    <link rel="stylesheet" type="text/css" href="exptrees.css">
+<title>expression tree</title>
+<meta charset="utf-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="exptrees.css">
 
-
-<!-- <script src="calci.js"></script>  -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="jquery-1.11.3.min.js"></script>
+ <script>
+		    table,td {
+		    	border: 1px solid black ;
+		    	border-collapse: collapse ;
+		    }
+		    </script>  
+<!-- <script src="jquery.js"></script> -->
 </head>
 <body>
 
-<br><Br>
+<br><br>
 
     <p><h2> Expression Trees</h2>
-    <h4>Give Expression =></h4></p>    
+    <h4>Give Expression =><p id="demo"></p> </h4></p>  
+  
+  	 	
+ 		<!-- <div id="porder">
+ 		<table border="1" border-collapse="collapse" width="200px" height="100px" align="right"><tr><td>
+			 private void preOrder(node localRoot){<br>
+			 if(localRoot != null){<br>
+				 localRoot.displayNode();<br>
+				preOrder(localRoot.leftChild);<br>
+				preOrder(localRoot.rightChild);<br>
+			 } } 
+ 		</td></tr></table><br><br><br><br>
+ 		
+ 		 </div>
+ 		<div id="two">
+ 			<table border="1" width="200px" height="100px" align="right"><tr><td>
+ 			private void inOrder(node localRoot){ <br>
+if(localRoot != null){ <br>
+	inOrder(localRoot.leftChild); <br>
+	localRoot.displayNode(); <br>
+	inOrder(localRoot.rightChild); <br>
+ } } 
+		</div>
+		<div id="three">
+	 		<table border="1" width="200px" height="100px" align="right"><tr><td>
+	 			private void p/ostOrder(node localRoot){ <br>
+				if(localRoot != null){ <br>
+				postOrder(localRoot.leftChild); <br>
+				postOrder(localRoot.rightChild); <br>
+				localRoot.displayNode(); <br>
+	 		</td></tr></table><br><br><br><br>
+		</div>  -->
+    <div id="hover">
+     	
+		   <table id="BinaryTree">
+		        <tr><td><input id="pre" type="button" class="button black" value="PreOrder " onClick="preorder()"></td></tr>
+		        <tr><td><input id="in" type="button" class="button black" value="InOrder" onClick="inorder()"></td></tr>
+		        <tr><td><input id="post" type="button" class="button black" value="PostOrder" OnClick="postorder()"></td></tr>
+		    </table> 
+    </div>
+   <p id="demo" align="center"></p>
    
-   <!-- <table>
-        <tr><td><input id="pre-order" type="button" class="button black" value="Pre-Order " onClick="this.innerHTML=Pre-order()"></td></tr>
-        <tr><td><input type="button" class="button black" value="In-Order" onClick=""></td></tr>
-        <tr><td><input type="button" class="button black" value="Post-Order" OnClick=""></td></tr>
-    </table> --> 
     <div id="myDIV">
         <table  class="highlight" cellpadding="0px" style="height:200px ; width: 150px ">
-        <form name="expression" >
-        <input type="textfield" class="button white" placeholder="**press C and start**" style="width:270px ; height: 30px ; margin-left:15px "  name="ans" value="">
-        <!-- <p><a class="highlight" href="css_syntax.asp">CSS Syntax</a></p> -->
+        <form name="expression"  id="infix" onclick="myinfix">
+        <input type="reset" id="myReset" class="white" value="**press C and start**" onclick="myFunction()"  style="width:270px ; height: 30px ; margin-left:15px "  name="ans" value="">
+       
         <tr>
             <td><input type="button" class="button white" value="( " onClick="document.expression.ans.value+='('"></td>
             <td><input type="button" class="button white" value=")" onClick="document.expression.ans.value+=')'"></td>
             <td colspan="2">
-            <input type="button" class="button grey" value="Backspace" OnClick="document.expression.ans.value=''"></td>
+            <input type="button" class="button grey" value="Backspace" OnClick="document.expression.ans.value = document.expression.ans.value.substring(0,document.expression.ans.value.length*1 -1)"></td>
             <td><input type="button" class="button white" value="C" onclick="document.expression.ans.value=''"></td>
         </tr><br>
         <tr>
@@ -58,38 +103,46 @@
             <td><input type="button" value="+" class="button white"onClick="document.expression.ans.value+='+'"></td>
             <td><input type="button" value="=" class="button white"onClick="document.expression.ans.value=eval(document.expression.ans.value)"></td>
             
-            
-            
         </tr></form>
         </table>
     </div>
+		    
+    <script src="ext.js"></script>
+ 	
     
-    <script>
- {
-    document.getElementById("myDIV").style.bottom = "10px";
-    function displaypreorder(){
-        document.getElementById(pre-order).innerHTML= Pre-Order();
-    }
-}
-function goBack()
-  {
-   window.history.back()
-  }
-</script>
-   
-    <!--<table border="1" width="100px" height="200px" align="right" position: "relative" >
-    <tbody>
-    <tr><td></td></tr>
-    <tr><td></td></tr>
-    <tr><td></td></tr>
-    <tr><td></td></tr>
-    <tr><td></td></tr>
-    <tr><td></td></tr>
-    <tr><td></td></tr>
-    <tr><td></td></tr>
-    </tbody>
-    
-    </table> --> 
-    
+			<!-- <div id="images" align="center" width="42" height="42">
+			    <img src="images/pause.png"></img>
+			    <img scr="images/play.png"></img>
+			    <img scr="images/rewind.png"></img>
+		    </div>
+    -->
+	<div id="hover1">
+	    <table border="1" border-collapse="collapse" width="100px" height="200px" align="right" position: "relative">
+		<tbody>
+		    <tr><td></td></tr>
+		    <tr><td></td></tr>
+		    <tr><td></td></tr>
+		    <tr><td></td></tr>
+		    <tr><td></td></tr>
+		    <tr><td></td></tr>
+		    <tr><td></td></tr>
+		    <tr><td></td></tr>
+		</tbody>
+		    
+		    </table>
+
+	</div>
+		<!-- <div>
+		<svg height="100" width="100">
+		  <circle id="mycanvas" cx="30" cy="20" r="20"  fill="red" />
+		  Sorry, your browser does not support inline SVG.  
+			</svg> 
+		<script>
+		var c=document.getElementById('myCanvas');
+var ctx=c.getContext('2d');
+ctx.font='30px Arial';
+ctx.fillText('Hello World',20,50);
+		</script>
+		</div> -->
     </body>
 </html>
