@@ -236,7 +236,7 @@ function Sorting(res)
 	var teststring = "";
 	for(var i=0;i<res.length;i++)
 	{
-	teststring +=res5[i];
+		teststring +=res5[i];
 	}
 	var res6 = teststring;
 	//alert(res6);

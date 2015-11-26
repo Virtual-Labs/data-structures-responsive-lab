@@ -9,9 +9,11 @@ p {
     font-size: 2em;
     margin: 1px 0 10px;
 }
-.desc{
-  font-family: Calibri;
+
+.desc {
+    font-family: Calibri;
 }
+
 .result{
 	font-family: Calibri;
 	font-size: x-large;
