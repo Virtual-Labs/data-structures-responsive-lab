@@ -155,14 +155,17 @@ function mul_logic(i) {
   var no_of_zeros = b.length - i;
   res += makeZeros(no_of_zeros);
   console.log('final res', res);
+
   // append the intermediate mul to the display
   $('#mul-animation').append(res + '<br>');
+
   // also push it to an array for final addition later
   interm_muls.push(res);
 
   // move the arrow and the after the arrow move that func will call this func
   // again
   move_arrow_mul(i);
+
   // call itself again after 2 secs
   /*setTimeout(function () {
     mul_logic(i-1);
