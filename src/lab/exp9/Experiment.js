@@ -41,6 +41,8 @@ function Experiment() {
       for(i=0; i < GraphNode.allInstances.length ; i++)
       {
 		GraphNode.allInstances[i].completely_visited = false;
+                GraphNode.allInstances[i].parent = i;
+                GraphNode.allInstances[i].rank = 0;
       }
       for(i=0; i < GraphMidNode.allInstances.length ; i++)
       {
@@ -63,25 +65,89 @@ function Experiment() {
 
   }
 
-  Experiment.clickedIn = function(u) {
+  
+  Experiment.find = function(i)
+  {
+    if (GraphNode.allInstances[i].parent != i)
+        GraphNode.allInstances[i].parent = Experiment.find(GraphNode.allInstances[i].parent);
+ 
+    return GraphNode.allInstances[i].parent;
+  }
+
+  Experiment.union = function(x, y)
+  {
+    var xroot = Experiment.find(x);
+    var yroot = Experiment.find(y);
+ 
+    if (GraphNode.allInstances[xroot].rank < GraphNode.allInstances[yroot].rank)
+        GraphNode.allInstances[xroot].parent = yroot;
+    else if (GraphNode.allInstances[xroot].rank > GraphNode.allInstances[yroot].rank)
+        GraphNode.allInstances[yroot].parent = xroot;
+    else
+    {
+        GraphNode.allInstances[yroot].parent = xroot;
+        GraphNode.allInstances[xroot].rank++;
+    }
+  }
+
+ 
+
+  Experiment.clickedIn = function(p) {
     window.setTimeout(function() {
 
-      if ( u % 2 == 0)
-         var nxt = u + 1;
+      if ( p % 2 == 0)
+         var nxt = p + 1;
       else
-         var nxt = u - 1;
+         var nxt = p - 1;
  //     GraphMidNode.allInstances[u].visited = true;
  //     GraphMidNode.allInstances[nxt].visited = true;
-      var a = GraphMidNode.allInstances[u].number;
+      var a = GraphMidNode.allInstances[p].number;
       var b = GraphMidNode.allInstances[nxt].number;
-      var e = GraphMidNode.allInstances[u].edgeno;
+      var e = GraphMidNode.allInstances[p].edgeno;
       var n1 = ( a + b ) / 2;
-      if( u % 2 == 0)
+      if( p % 2 == 0)
          var n2 = b - n1;
       else 
          var n2 = a - n1;
-
+ 
+      var x = Experiment.find(GraphEdge.allInstances[e].u);
+      var y = Experiment.find(GraphEdge.allInstances[e].v);
       var flag = 0;
+      if(x != y)
+      {
+         Experiment.union(x, y);
+         if(!GraphNode.allInstances[n1].completely_visited)
+         {
+	 GraphNode.allInstances[n1].completely_visited = true;
+         }
+         if(!GraphNode.allInstances[n2].completely_visited)
+         {
+         GraphNode.allInstances[n2].completely_visited = true;
+         }
+         GraphMidNode.allInstances[p].visited = true;
+         GraphMidNode.allInstances[nxt].visited = true;
+         GraphEdge.allInstances[e].visi = true;
+         Experiment.visitedCount++;
+         flag = 0;
+         var ii = 0;
+  //       console.log(Experiment.visitedCount);
+      }     
+      else
+      {
+         flag = 0;
+      }		
+
+      Experiment.checkComplete();
+      if(ii == 0)
+      {
+      InformationBoard.text = "Good Choice!, way to go";
+      }
+      else
+      { 
+      InformationBoard.text = "Selecting this edge forms a loop, Select a different edge!";
+      }
+
+ /*     var flag = 0;
       if(GraphNode.allInstances[n1].completely_visited && GraphNode.allInstances[n2].completely_visited )
       {
          flag = 1;
@@ -114,12 +180,12 @@ function Experiment() {
       else
       { 
       InformationBoard.text = "Selecting this edge forms a loop, Select a different edge!";
-      }
+      } */
     }, 30);
   }
 
   Experiment.checkComplete = function() {
-    if(Experiment.visitedCount == NUMBER_NODES) {
+    if(Experiment.visitedCount == NUMBER_NODES - 1) {
       window.setTimeout(function() { 
         InformationBoard.text = "Correct ! You have succesfully completed the algorithm. Click anywhere on screen to go to main menu.";
         Experiment.complete = true;
@@ -143,6 +209,8 @@ function Experiment() {
       for(i = 0; i < GraphNode.allInstances.length; i++) {
       GraphNode.allInstances[i].partially_visited = true;
       GraphNode.allInstances[i].completely_visited = false;
+      GraphNode.allInstances[i].parent = i;
+      GraphNode.allInstances[i].rank = 0;
     }
       for(i=0; i < GraphMidNode.allInstances.length ; i++)
       { 
