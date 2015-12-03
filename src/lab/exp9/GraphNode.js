@@ -8,6 +8,8 @@ function GraphNode(x, y, number, demo) {
   this.completely_visited = false;
   this.adjList = [] 
   this.adjMatrix = [] 
+  this.parent = number;
+  this.rank = 0;
 
 
   if( ! demo) {

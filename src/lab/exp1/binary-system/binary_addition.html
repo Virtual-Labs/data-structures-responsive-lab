@@ -13,6 +13,7 @@
       <p> Binary Number System</p>  
     </nav>
     <br>
+
     <div class="container">
       <div class="row">
         <div class="col-md-5">
@@ -28,33 +29,83 @@
             <button class="btn btn-primary btn-lg pull-right" onclick="add()">Add</button>
           </div>
           <div class="col-md-5"> 
-            <button class="btn btn-primary btn-lg pull-left" onclick="multiplication(a,b)">Multiply</button>
+            <button class="btn btn-primary btn-lg pull-left" onclick="mul()">Multiply</button>
           </div>
       </div><br>
 
 
-      <div class="row" style="border: 1px solid #ccc">
-        <div class="col-md-6"> 
-          <div class="row" id="arrow">
-            <div class="line"></div>
-            <div class="arrow-head"></div>
+
+      <div class="container" id="addition-res">
+        <div class="row">
+          <div class="col-md-6"> 
+            <div class="row" id="arrow">
+              <div class="line"></div>
+              <div class="arrow-head"></div>
+            </div>
+            <div class="row">
+              <div class="nums" id="num1"></div>
+            </div>
+            <div class="row">
+              <div class="nums" id="num2"></div>
+            </div>
+            <div class="row">
+              <div class="nums" id="result"></div>
+            </div>
+            <div class="row animation_mul">
+              <div class="col-md-12" id="res-add"></div>
+            </div>
           </div>
-          <div class="row">
-            <div class="nums" id="num1"></div>
-          </div>
-          <div class="row">
-            <div class="nums" id="num2"></div>
-          </div>
-          <hr> 
-          <div class="row">
-            <div class="nums" id="result"></div>
+          <div class="col-md-4 some">
+            <div class="col-md-3 some" id="carry1"></div>
+            <div class="col-md-9 some" id="carry"></div>
           </div>
         </div>
-        <div class="col-md-6 some">
-          <div class="col-md-3 some">Carry:</div>
-          <div class="col-md-9 some" id="carry"></div>
+        <div class="row animation_mul">
+          <div class="col-md-12" id="addFinalRes"></div>
         </div>
-      </div>  
+
+      </div>
+
+       
+      <div class="container" id="mul-res">
+        <!-- first num -->
+        <div class="row">
+          <div class="nums" id="firstValue"></div>
+        </div>
+        <!-- arrow div -->
+        <div class="row">
+          <div class="col-md-12"> 
+            <div class="row" id="arrow-mul">
+              <div class="line"></div>
+              <div class="arrow-head"></div>
+            </div>
+          </div>
+        </div>
+        <!-- second num -->
+        <div class="row">
+          <div class="nums" id="secondValue"></div>
+        </div>
+        <!-- hr -->
+        <div class="row" id="hrAfterInpt"></div>
+        <!-- animation results -->
+        <div class="row nums">
+          <div id="mul-animation"></div>
+        </div>
+        <!-- hr -->
+        <div class="row" id="hrBeforeRes"></div>
+        <!-- result div -->
+        <div class="row nums">
+          <div id="mul-result"></div>
+        </div>
+         <!-- hr -->
+        <div class="row" id="hr-before-main-res"></div>
+
+        <div class="row animation_mul">
+          <div class="col-md-12" id="mulFinalRes"></div>
+        </div>
+      </div>
+    
+    </div>  
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script type="text/javascript" src="binary_addition.js"></script>
