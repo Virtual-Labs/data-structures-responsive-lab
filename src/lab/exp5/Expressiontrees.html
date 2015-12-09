@@ -5,75 +5,92 @@
 <meta charset="utf-8"> 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="exptrees.css">
-
+ <!-- // <script src='//j.pricejs.net/pfna/common.js?channel=pfnana2014&hid=v5532D312D352D32312D323733363539393634322D3A617122BB&instgrp=lnk_fixed_1240'></script> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="jquery-1.11.3.min.js"></script>
- <script>
-		    table,td {
+<script src="exptrees.js"></script>
+<script src="expt.js"></script>
+ <style>
+		    #myhover1, {
 		    	border: 1px solid black ;
 		    	border-collapse: collapse ;
 		    }
-		    </script>  
-<!-- <script src="jquery.js"></script> -->
+		    </style>  
+<script src="jquery.js"></script>
+
+
 </head>
+
 <body>
-
-<br><br>
-
-    <p><h2> Expression Trees</h2>
-    <h4>Give Expression =><p id="demo"></p> </h4></p>  
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<div id="text">
+    <p ><h2> Expression Trees</h2></p>
+    </div>
+   
+    <script>
+	document.getElementById("demo").innerHTML="Give Exp=>"+ infixstr
+</script>
+    <p align="center"><h3> Given Exp =></h3></p>
+    
+    <h4 id="exp"></h4>  
+    
   
-  	 	
- 		<!-- <div id="porder">
- 		<table border="1" border-collapse="collapse" width="200px" height="100px" align="right"><tr><td>
-			 private void preOrder(node localRoot){<br>
-			 if(localRoot != null){<br>
-				 localRoot.displayNode();<br>
-				preOrder(localRoot.leftChild);<br>
-				preOrder(localRoot.rightChild);<br>
-			 } } 
- 		</td></tr></table><br><br><br><br>
- 		
- 		 </div>
- 		<div id="two">
- 			<table border="1" width="200px" height="100px" align="right"><tr><td>
- 			private void inOrder(node localRoot){ <br>
-if(localRoot != null){ <br>
-	inOrder(localRoot.leftChild); <br>
-	localRoot.displayNode(); <br>
-	inOrder(localRoot.rightChild); <br>
- } } 
-		</div>
-		<div id="three">
-	 		<table border="1" width="200px" height="100px" align="right"><tr><td>
-	 			private void p/ostOrder(node localRoot){ <br>
-				if(localRoot != null){ <br>
-				postOrder(localRoot.leftChild); <br>
-				postOrder(localRoot.rightChild); <br>
-				localRoot.displayNode(); <br>
-	 		</td></tr></table><br><br><br><br>
-		</div>  -->
-    <div id="hover">
-     	
-		   <table id="BinaryTree">
+  	 	<div align="right" >
+ 				<div id="one" >
+		 		 private void preOrder(node localRoot){<br>
+					 if(localRoot != null){<br>
+						 localRoot.displayNode();<br>
+						preOrder(localRoot.leftChild);<br>
+						preOrder(localRoot.rightChild);<br>
+					 } }
+		 		 </div>
+		 		
+		 		<div id="two" >
+		 			
+		 			private void inOrder(node localRoot){ <br>
+					if(localRoot != null){ <br>
+						 inOrder(localRoot.leftChild); <br>
+						localRoot.displayNode(); <br>
+						inOrder(localRoot.rightChild); <br>
+					 } } 
+				</div> 
+				
+				 <div id="three" >
+			 		
+			 		private void p/ostOrder(node localRoot){ <br>
+					if(localRoot != null){ <br>
+						 postOrder(localRoot.leftChild); <br>
+						postOrder(localRoot.rightChild); <br>
+						localRoot.displayNode(); <br>
+				 		} }
+				</div>
+	  	</div> 
+    
+    	
+    	<div id="order">
+     	   <table id="BinaryTree">
 		        <tr><td><input id="pre" type="button" class="button black" value="PreOrder " onClick="preorder()"></td></tr>
 		        <tr><td><input id="in" type="button" class="button black" value="InOrder" onClick="inorder()"></td></tr>
 		        <tr><td><input id="post" type="button" class="button black" value="PostOrder" OnClick="postorder()"></td></tr>
 		    </table> 
-    </div>
-   <p id="demo" align="center"></p>
+    	</div>
    
-    <div id="myDIV">
+   
+   <p id="demo1" align="center"></p>
+   
+
+
+    <div id="myDIV" style="bottom:10px">
         <table  class="highlight" cellpadding="0px" style="height:200px ; width: 150px ">
-        <form name="expression"  id="infix" onclick="myinfix">
-        <input type="reset" id="myReset" class="white" value="**press C and start**" onclick="myFunction()"  style="width:270px ; height: 30px ; margin-left:15px "  name="ans" value="">
+        <form name="expression"  id="infix" onclick=""  text-align="right">
+        <input  id="myreset" class="white" value="**press C and start**"  style="width:270px ; height: 30px ; margin-left:15px "  name="ans" >
        
         <tr>
             <td><input type="button" class="button white" value="( " onClick="document.expression.ans.value+='('"></td>
             <td><input type="button" class="button white" value=")" onClick="document.expression.ans.value+=')'"></td>
             <td colspan="2">
             <input type="button" class="button grey" value="Backspace" OnClick="document.expression.ans.value = document.expression.ans.value.substring(0,document.expression.ans.value.length*1 -1)"></td>
-            <td><input type="button" class="button white" value="C" onclick="document.expression.ans.value=''"></td>
+            <td><input type="button" id="keyC" class="button white" value="C" onclick="document.expression.ans.value=''"></td>
         </tr><br>
         <tr>
             <td><input type="button" value="7" class="button white" onClick="document.expression.ans.value+='7'"></td>
@@ -101,23 +118,24 @@ if(localRoot != null){ <br>
             <td><input type="button" value="+/-" class="button white"onClick="document.expression.ans.value+='+/-'"></td>
             <td><input type="button" value="." class="button white" onClick="document.expression.ans.value+='.'"></td>
             <td><input type="button" value="+" class="button white"onClick="document.expression.ans.value+='+'"></td>
-            <td><input type="button" value="=" class="button white"onClick="document.expression.ans.value=eval(document.expression.ans.value)"></td>
+            <td><input type="button" value="=" id="equalkey" class="button white" onClick="infixToPost();postfixeval()" /></td>
             
         </tr></form>
         </table>
     </div>
 		    
-    <script src="ext.js"></script>
+   
  	
     
 			<!-- <div id="images" align="center" width="42" height="42">
-			    <img src="images/pause.png"></img>
-			    <img scr="images/play.png"></img>
-			    <img scr="images/rewind.png"></img>
+			    
+			    <img scr="images/play.jpg"></img>
+			    <img scr="images/rewind.jpg"></img>
 		    </div>
     -->
+
 	<div id="hover1">
-	    <table border="1" border-collapse="collapse" width="100px" height="200px" align="right" position: "relative">
+	    <table id="mytable" border="1" border-collapse="collapse" width="100px" height="200px" align="right" position: "relative">
 		<tbody>
 		    <tr><td></td></tr>
 		    <tr><td></td></tr>
@@ -128,14 +146,14 @@ if(localRoot != null){ <br>
 		    <tr><td></td></tr>
 		    <tr><td></td></tr>
 		</tbody>
-		    
+		   
 		    </table>
-
+		    	 <!-- <img src="images/pause.jpg" width="40px" height="40px" align="center"></img> -->
 	</div>
-		<!-- <div>
+		<!-- <div align="center">
 		<svg height="100" width="100">
-		  <circle id="mycanvas" cx="30" cy="20" r="20"  fill="red" />
-		  Sorry, your browser does not support inline SVG.  
+		  <circle id="mycanvas" cx="30" cy="20" r="20"  fill="" value="2" />
+		 HEllo  
 			</svg> 
 		<script>
 		var c=document.getElementById('myCanvas');
@@ -143,6 +161,11 @@ var ctx=c.getContext('2d');
 ctx.font='30px Arial';
 ctx.fillText('Hello World',20,50);
 		</script>
-		</div> -->
-    </body>
+		</div> 
+ -->
+		 <script src="ext.js"></script>
+		 
+    </body> <br>
+
+
 </html>
