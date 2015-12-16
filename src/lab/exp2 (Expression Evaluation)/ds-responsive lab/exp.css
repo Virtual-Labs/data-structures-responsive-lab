@@ -1,0 +1,120 @@
+.well 
+{
+	background-color:darkblue;
+	color:white;
+	text-align: center;
+	font-size: 30px;
+}
+.container
+{
+    position: relative;
+}
+input
+{
+   border:4px solid grey;
+   border-radius: 10px;
+   -moz-border-radius: 10px;
+   -webkit-border-radius: 10px;
+   background-color: lightgrey;
+   font-size: 25px;
+ }
+
+.btn 
+{
+   border-width:4px;
+   border-bottom-width: 4px;
+   border-style:inset;
+   border-color:skyblue;
+   width: 100%;
+   cursor:pointer;
+   color:darkblue; 
+   transition-property: border;
+   transition-duration: 1s;
+   transition-timing-function: linear;
+   padding: 12px;
+   border-radius: 10px;
+   -moz-border-radius: 10px;
+   -webkit-border-radius: 10px;
+   font-size: 100%;
+}
+
+.btn:hover
+  { 
+  	background:grey;
+  }
+
+#stack
+{
+	border-collapse: collapse;
+	height:320px;
+	width:70px;
+  margin-right: 380px;
+  margin-top: 120px;
+  
+}
+.data 
+{
+   border:3px solid black;
+   padding: 16px;
+}
+.instruction
+{
+    border-radius: 25px;
+    border: 4px solid black;
+    padding: 20px; 
+    width: 450px;
+    height: 150px; 
+    float:right;
+    margin-right: 50px;
+}
+
+#demo,#demo1,#demo2
+{
+	font-size: 25px;
+  /*color:blue;*/
+}
+
+.container
+{
+    position: relative;
+    /*background-color: lightblue;*/
+}
+
+#arrow
+{
+  position: relative;
+  margin-left: 110px;
+  display: none;
+}
+
+.line 
+{
+  position: relative;
+  left: 8px;
+  min-height: 20px;
+  width: 5px;
+  background-color: #000;
+}
+.arrow-head 
+{
+  width: 0px;
+  height: 0px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid ;
+}
+
+#row1
+{
+  color: red;
+  text-align:center;
+  font-size: 28px;
+  border:3px solid black;
+}
+
+/*@-webkit-keyframes mynewmove {
+    from {top: 0px;}
+    to {top: 200px;}
+}
+*/
+
