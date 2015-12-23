@@ -10,29 +10,65 @@ var romanNumeral,decimal;
 var firstValue; 
 var secondValue;
 var thirdValue; 
-var fourthValue;				
+var fourthValue;	
+// console.log(firstValue);
+function displayTable(){
+	var row1 = document.getElementById('row1');
+	var row2 = document.getElementById('row2');
+	setTimeout(function(){
+	row1.style.display="";
+	row1.class="some"
+	},1000);
+	setTimeout(function(){
+	row2.style.display="";
+	},2000);
+	setTimeout(function(){
+	row3.style.display="";
+	},3000);
+	setTimeout(function(){
+	row4.style.display="";
+	},4000);
+	setTimeout(function(){
+	row5.style.display="";
+	},5000);
+	setTimeout(function(){
+	row6.style.display="";
+	},6000);
+	setTimeout(function(){
+	row7.style.display="";
+	},7000);
+	setTimeout(function(){
+	row8.style.display="";
+	},8000);
+}
+
 function add(first, second)
 {
 	firstValue = document.getElementById('first').value.toUpperCase();
 	secondValue = document.getElementById('second').value.toUpperCase();
+
 	showSecond();
+	displayTable();
 }
 
 function showSecond(f) {
 	Subtractives(firstValue,secondValue);
 	thirdValue = document.getElementById('third').innerHTML;
 	fourthValue = document.getElementById('fourth').innerHTML;
-	setTimeout(showFifth, 1000);
+	showFifth();
 }
-
 function showFifth() {
+
 	var res = thirdValue.concat(fourthValue);
 	document.getElementById('fifth').innerHTML = res;//display's concatinated value.
 	
 	Sorting(res);
-	var res6 = document.getElementById('sixth').innerHTML
+	if(res6 == "")
+		console.log("no value");
+	else
+		var res6 = document.getElementById('sixth').innerHTML
 
-	
+	console.log(res6);
 	var partialresult1 = matching(res6);
 	//alert(partialresult1);
 	var partialresult2 = matching(partialresult1);
@@ -48,7 +84,7 @@ function mul(first,second)
 	Subtractives(firstValue,secondValue);
 	var thirdValue = document.getElementById('third').innerHTML;
 	var fourthValue = document.getElementById('fourth').innerHTML;
-	
+
 	var res1 = thirdValue;
 	var res2 = fourthValue;
 
@@ -78,16 +114,17 @@ function mul(first,second)
 
 	Sorting(res8);
 	var res6 = document.getElementById('sixth').innerHTML;
-
+	console.log(res6);
 	var partialresult1 = matching(res6);
 	//alert(partialresult1);
 	var partialresult2 = matching(partialresult1);
 	//alert(partialresult2);
-
+	displayTable();
+	
 }
 function matching(res6)
-	{
-		
+	{	var res6 = document.getElementById('sixth').innerHTML;
+		console.log(res6);
 	var pattn1 = /[VV]{2}/g;var result1 = res6.match(pattn1);var res7 = res6.replace(/[VV]{2}/g,"X");
 	var pattn2 = /[LL]{2}/g;var result2 = res6.match(pattn2);var res8 = res7.replace(/[LL]{2}/g,"C");
 	var pattn3 = /[DD]{2}/g;var result3 = res6.match(pattn3);var res9 = res8.replace(/[DD]{2}/g,"M");
@@ -230,6 +267,8 @@ function matching(res6)
 	}
 	else
 	{
+		// document.getElementById('descToFindAndReplace').innerHTML = "";
+		// document.getElementById('findReplaceDiv').innerHTML = "";
 		document.getElementById('ninth').innerHTML = res6;
 	}
 	

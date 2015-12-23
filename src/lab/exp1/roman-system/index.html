@@ -8,69 +8,151 @@
   	<link rel="stylesheet"
     	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 	</head>
+  <style>
+table {
+    width: 50%;
+    border: 1px solid black;
+    vertical-align: center;
+    margin-left: 20%;
+}
+td {
+    height: 50px;
+    border: 1px;  
+    /*vertical-align: bottom;*/
+    padding-top: 0.05em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+tr{
+  background-color: #eaeaea;
+}
+
+</style>
 	<body>
 		<nav class="nav colorSet navbar-inner">
       <p> Roman Number System</p>  
   	</nav>
   	<br>			 
 	 	<div class="container">
-   		<div class="row">
-      	<div class="col-md-5">
-        	<div class="desc"><h5> Enter first roman value: </h5></div>
-        	<input type="text" class="form-control" id="first" placeholder="Enter first binary value">
-      	</div>
-      	<div class="col-md-5">
-        	<div class="desc"><h5> Enter second roman value: </h5> </div>
-        	<input type="text" class="form-control" id="second" placeholder="Enter second binary value">
-      	</div>
-    	</div><br>
-			<!--<input class = "firstInputField" id='first' type="text">
-			<input class = "secondInputField"id='second' type="text">
-			<div class="firstInputText">Enter the First Roman Number</div>
-			<div class="secondInputText">Enter the Second Roman Number</div>-->
-			<div class="row">
-      	<div class="col-md-5"> 
-        	<button class="btn btn-primary btn-lg pull-right" onclick="add(first, second)">Add</button>
-      	</div>
-      	<div class="col-md-5"> 
-        	<button class="btn btn-primary btn-lg pull-left" onclick="mul(first, second)">Multiply</button>
-      	</div>
-    	</div>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="desc"><h5> Enter first roman value: </h5></div>
+          <input type="text" class="form-control" id="first" placeholder="Enter first binary value">
+        </div>
+        <div class="col-md-5">
+          <div class="desc"><h5> Enter second roman value: </h5> </div>
+          <input type="text" class="form-control" id="second" placeholder="Enter second binary value">
+        </div>
+      </div><br>
+
+      <div class="row">
+        <div class="col-md-5"> 
+          <button class="btn btn-primary btn-lg pull-right" onclick="add(first, second)">Add</button>
+        </div>
+        <div class="col-md-5"> 
+          <button class="btn btn-primary btn-lg pull-left" onclick="mul(first, second)">Multiply</button>
+        </div>
+      </div>
+      <hr>
+      <!-- div class="row col-md-12"> -->
+        <table class="tableStyle">
+          <tr id="row1" style="display:none">
+            <td>First Value</td>
+            <td id="third"></td>
+          </tr>
+          <tr id="row2" style="display:none">
+            <td>Second Value</td>
+            <td id="fourth"></td>
+          </tr>
+          <tr id="row3" style="display:none">
+            <td>Value after concatination</td>
+            <td id="fifth"></td>
+          </tr>
+          <tr id="row4" style="display:none; border: 0px;">
+            <td>Sort the symbols in order from left-to-right with "largest" symbols on the left: </td>
+            <td id="sixth"></td>
+          </tr>
+
+          <tr id="row5" style="display:none;">
+            <td style="font-weight: bold">Starting with the right end, combine groups of the same symbols</td>
+            <td id="extra" ></td>
+          </tr>
+          <tr id="row6" style="display:none;">
+            <td>Found</td>
+            <td id="seventh"></td>
+          </tr>
+          <tr id="row7" style="display:none;">
+            <td>Replace</td>
+            <td id="eighth"></td>
+          </tr>
+            <tr id="row8" style="display:none;">
+            <td>Substitute any subtractives and the final result is </td>
+            <td id="ninth"></td>
+          </tr>
+
+      </table>
+     <!--  </div> -->
+
+
+
+
+
+
+
+
+
+      <!-- <hr> -->
+      <!-- <div class="container" id="add-container">
+       <div class="row">
+          <div class="col-md-12" id="label-to-show-both-values"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-6" id="third"></div>
+          <div class="col-md-6" id="fourth"></div>
+        </div>
+
+        <div class="row" id="hr-after-inputs"></div>
+ -->
+        <!-- Put values together div -->
+        <!-- <div class="row">
+          <div class="col-md-12" id="put-values-together"></div>
+          <div class="col-md-12" id="fifth"></div>
+        </div>
+
+        <div class="row" id="hr-after-concat"></div>
+
+      </div> -->
+
     	
-			<!--<div class="buttonHolder">
-			<input value="Add"  type="submit"  onclick="add(first,second)">
-			<input value="Mul"  type="submit"  onclick="mul(first,second)">
-			</div>-->
-    	<hr>
+    	<!-- <hr>
     	<div class="row">
       	<div class="col-md-12 desc"><h5>Substitute for any subtractives: </h5></div>
     	</div>
     	<div class="row">
     		<div class="col-md-6	result" id="third"></div>
     		<div class="col-md-6 result" id="fourth"></div>
-				<!--<p>substitute for any subtractives</p>
-				<input id='third' type="text" name="thirdValue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id='fourth' type="text" name="fourthValue">-->
 			</div>
-			<hr>
+
+			<hr> --><!-- 
     	<div class="row">
       	<div class="col-md-2 desc"><h5>Put the values together: </h5></div>
       	<div class="col-md-10 pull-left result" id="fifth" ></div>
-    	</div> 
-
-	    <hr>
-  	  <div class="row">
+    	</div>  -->
+      
+	    <!-- <hr> -->
+  	  <!-- <div class="row">
     		<div class="col-md-12 desc"><h5>Sort the symbols in order from left-to-right with "largest" symbols on the left: </h5></div>
     	</div>    
     	<div class="row">
       	<div class="col-md-12 pull-left result" id="sixth" ></div>
-    	</div>
-    	<div class="row">
-      	<div class="col-md-12 desc "><h5>Starting with the right end, combine groups of the same symbols</h5></div>
-    	</div>
-			<!--<p>put the values together</p><input id='fifth' type="text" name="fifthValue"> 
-			<p>sort the symbols in order from left-to-right with "largest" symbols on the left</P><input id='sixth' type="text" name="sixthValue"> -->
-			<hr>
-			<div class="row">
+    	</div> -->
+    <!-- 	<div class="row" id="descToFindAndReplace">
+      	<div class="col-md-12 desc"><h5>Starting with the right end, combine groups of the same symbols</h5></div>
+    	</div> -->
+
+
+			<!-- <hr> -->
+			<!-- <div class="row" id="findReplaceDiv">
 				<div class="col-md-6">
 					<div class="row desc"><h5> Found </h5></div>	
 					<div class="row result" id="seventh" style="border: 1px solid #eee">	</div>
@@ -80,17 +162,17 @@
 					<div class="row result" id="eighth" style="border: 1px solid #eee">	</div>
 				</div>
 			</div>
-				<br>
+				<br> -->
 
-			<!--<p>starting with the right end, combine groups of the same symbols</p><p>Found &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Replace </p>
-			<input id='seventh' type="text" name="seventhValue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id='eighth' type="text" name="eighthValue">-->
-			<div class="row">
+		<!-- 	<div class="row">
 				<div class="col-md-4 desc"><h5>Substitute any subtractives and the final result is </h5></div>
 				<div class="col-md-8 result pull-left" id="ninth" > </div>
 			</div>
 		</div>
-		<hr>
-		<!--<p>substitute any subtractives and the final result is </p><input id='ninth' type="text" name="ninthValue"> -->
+		<hr> -->
+		
 	</body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script type="text/javascript" src="binary_addition.js"></script>
 	<script src = "index2.js"></script>
 </html>
