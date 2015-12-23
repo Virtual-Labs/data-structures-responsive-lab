@@ -1,0 +1,229 @@
+body {
+  overflow-y: scroll;
+}
+
+.well 
+{
+  background-color:darkblue;
+  color:white;
+  text-align: center;
+  font-size: 25px;
+}
+.container
+{
+    position: relative;
+}
+h1
+{
+  font-family: serif;
+  font-weight: bold;
+}
+input
+{
+   border:4px solid grey;
+   border-radius: 10px;
+   -moz-border-radius: 10px;
+   -webkit-border-radius: 10px;
+   background-color: lightgrey;
+   font-size: 25px;
+   text-align: right;
+   /*font-family: serif;*/
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    padding-top: .2em;
+    padding-bottom: .2em;
+    padding-left: .2em;
+}
+
+#stack
+{
+  border-collapse: collapse;
+  height:320px;
+  width:70px;
+  margin-right: 380px;
+  margin-top: 140px;
+}
+.data 
+{
+   border:3px solid black;
+   padding: 16px;
+}
+.instruction
+{
+    border-radius: 25px;
+    border: 4px solid black;
+    padding: 20px; 
+    width: 450px;
+    height: 150px; 
+    float:right;
+    margin-right: 50px;
+}
+
+#infixId,#postfixId,#instrId
+{
+  font-size: 25px;
+  /*font-weight: bold;*/
+}
+#postfixId
+{
+  color : green;
+  margin-left: 15px;
+}
+
+#arrow
+{
+  position: relative;
+  margin-left: 115px;
+  display: none;
+  color: blue;
+}
+
+.line 
+{
+  position: relative;
+  left: 8px;
+  min-height: 30px;
+  width: 4px;
+  background-color: blue;
+  /*color: orange;*/
+}
+.arrow-head 
+{
+  width: 0px;
+  height: 0px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid ;
+}
+#arrow2
+{
+  position: relative;
+  margin-left: 115px;
+  display: none;
+  color: blue;
+}
+
+.line2 
+{
+  position: relative;
+  left: 8px;
+  min-height: 15px;
+  width: 3px;
+  background-color: blue;
+  /*color: orange;*/
+}
+.arrow-head2 
+{
+  width: 0px;
+  height: 0px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid ;
+}
+
+.stackrow
+{
+  color: red;
+  text-align:center;
+  font-size: 28px;
+  border:3px solid black;
+}
+
+----------
+input.white{
+background-color:#e6e6e6;
+border-style:solid;
+border-width:1px;   
+border-color:#6c6c46;
+width:100px;
+height: 30px; 
+}
+
+#myDIV
+{
+    border-color: #00bfff ;
+    position: absolute;
+    align-content:space-around;
+}
+
+form
+{
+    border-style:solid;
+    border-width:1px; 
+    border-color:#6c6c46;
+    background-color: #FFFFFF;
+}
+
+#highlight
+ {
+  width: 150px ;
+  height : 200px ;
+ }
+table.highlight:hover
+{
+  color:#80e0ff;
+}
+.box
+{
+
+height:280px;
+width:290px;
+border-radius:10px;
+position:relative;
+top:80px;
+left:30%;
+} 
+
+.button
+{
+width:50px;
+height:50px;
+border:none;
+border-radius:8px;
+margin-left:15px;
+cursor:pointer;
+border-top:2px solid transparent;
+}
+.button.white
+{
+color:black;
+background-color:skyblue;
+border-style:solid;
+border-width:3px; 
+border-color:#6c6c46;
+width:50px;
+height: 40px;
+text-align: center ;
+}
+
+.button.grey
+{
+color:black;
+background-color:#e6e6e6;
+border-style:solid;
+border-width:3px; 
+border-color:#6c6c46;
+width:120px;
+height: 40px;
+}
+
+input.button:hover {
+    background-color: #adad85 ;
+    color: white;
+    border-color: #000099 ;
+} 
+input.white:hover {
+    border-color: #000099 ;
+    
+}
+input.textfield:hover{
+    background-color:#adad85;
+    border-style:solid;
+    border-width:1px; 
+    border-color: #000099;
+}

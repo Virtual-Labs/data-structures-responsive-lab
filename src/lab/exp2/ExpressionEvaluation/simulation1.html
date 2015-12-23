@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="simulation1.css">
+  </head>
+  <body onload="hideImage()">
+  	<div id="header" class="well well-lg">Expression Evaluation Using Stack</div>
+  	<div class="container">
+  	<!-- arrow div and first row-->
+      <div class="row">
+        <div class="col-md-6"> 
+          <div class="row" id="arrow">
+          <div class="line"></div>
+          <div class="arrow-head"></div>
+        </div>
+      </div>&nbsp;&nbsp;<br/><br/>
+      <div id="infixId" ></div>
+
+      <div class="row">
+        <div class="col-md-6"> 
+          <div class="row" id="arrow2">
+          <div class="line2"></div>
+          <div class="arrow-head2"></div>
+        </div>
+      </div>&nbsp;&nbsp;<br/><br />
+
+      <div id="postfixId"></div>&nbsp;&nbsp;
+    </div> <!-- row ended -->
+
+<div class="row"><!-- second row -->
+  <div class="col-sm-5"> <!-- first column -->
+    <h1>Calculator</h1><br><br><Br>
+    <table  class="highlight" style="height:270px ; width: 250px" ; cellpadding="10px">
+      <form name="expression"  id="infix" onclick=""  text-align="center">
+        <input  id="textbox" class="white" value="**press C and start**"  style="width:320px ; height: 40px ; margin-left:15px";    name="ans" >
+        <tr>
+            <td><input type="button" class="button white" value="( " onClick="document.expression.ans.value+='('"></td>
+            <td><input type="button" class="button white" value=")" onClick="document.expression.ans.value+=')'"></td>
+            <td colspan="2">
+            <input type="button" class="button grey" value="Backspace" OnClick="document.expression.ans.value = document.expression.ans.value.substring(0,document.expression.ans.value.length*1 -1)"></td>
+            <td><input type="button" id="keyC" class="button white" value="C" onclick="document.expression.ans.value='' ;  clear()"></td>
+        </tr><br>
+        <tr>
+            <td><input type="button" value="7" class="button white" onClick="document.expression.ans.value+='7'"></td>
+            <td><input type="button" value="8" class="button white" onClick="document.expression.ans.value+='8'"></td>
+            <td><input type="button" value="9" class="button white" onClick="document.expression.ans.value+='9'"></td>
+            <td><input type="button" value="/" class="button white" onClick="document.expression.ans.value+='/'"></td>
+            <td><input type="button" value="^" class="button white" onClick="document.expression.ans.value+='^'"></td>
+            
+        </tr>
+        <tr>
+            <td><input type="button" value="4" class="button white" onClick="document.expression.ans.value+='4'"></td>
+            <td><input type="button" value="5" class="button white" onClick="document.expression.ans.value+='5'"></td>
+            <td><input type="button" value="6" class="button white" onClick="document.expression.ans.value+='6'"></td>
+            <td><input type="button" value="*" class="button white" onClick="document.expression.ans.value+='*'"></td>
+            <td><input type="button" value="%" class="button white" onClick="document.expression.ans.value+='%'"></td>
+            
+        </tr><br>
+        <tr>
+            <td><input type="button" value="1" class="button white" onClick="document.expression.ans.value+='1'"></td>
+            <td><input type="button" value="2" class="button white" onClick="document.expression.ans.value+='2'"></td>
+            <td><input type="button" value="3" class="button white"  onClick="document.expression.ans.value+='3'"></td>
+            <td><input type="button" value="-" class="button white"  onclick="document.expression.ans.value+='-'"></td>
+            <td><input type="button" value="1/x" class="button white"onClick="document.expression.ans.value+='1/x'"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="0" class="button white" onClick="document.expression.ans.value+='0'"></td>
+            <td><input type="button" value="+/-" class="button white"onClick="document.expression.ans.value+='+/-'"></td>
+            <td><input type="button" value="." class="button white" onClick="document.expression.ans.value+='.'"></td>
+            <td><input type="button" value="+" class="button white"onClick="document.expression.ans.value+='+'"></td>
+            <td><input type="button" value="=" id="equalkey" class="button white" onClick="showImage();checkVal()  ; document.expression.ans.value=eval(document.expression.ans.value)" ; /></td>
+            <td><img width="30" height="35" src="Images/rewind.png"></td>&nbsp;
+            <td> <img width="35" height="40" src="Images/play.png"></td>&nbsp;
+            <td><img width="60" align="left" height="70" src="Images/arrow.png"></td>
+            </tr>
+          </form>
+        </table>
+      </div>
+
+      <div class="col-sm-3">  <!-- second column -->
+            <table id="stack" border="2">
+              <tr id="row9"><td class="stackrow"></td></tr>
+              <tr id="row8"><td class="stackrow"></td></tr>
+              <tr id="row7"><td class="stackrow"></td></tr>
+              <tr id="row6"><td class="stackrow"></td></tr> 
+              <tr id="row5"><td class="stackrow"></td></tr>
+              <tr id="row4"><td class="stackrow"></td></tr>
+              <tr id="row3"><td class="stackrow"></td></tr>
+              <tr id="row2"><td class="stackrow"></td></tr>
+              <tr id="row1"><td class="stackrow"></td></tr>
+            </table>
+       </div>
+
+  			<div class="col-sm-4"> <!-- third column -->
+  				<p id="instrId" class="instruction"></p>
+  			</div>
+       
+       </div><!-- second row ended -->
+  </div><!-- container ended -->
+  </body>
+  <script src="simulation new.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  </html>
