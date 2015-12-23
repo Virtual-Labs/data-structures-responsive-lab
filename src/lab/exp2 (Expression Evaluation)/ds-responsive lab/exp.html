@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="exp.css">
+  </head>
+  <body onload="hideImage()">
+  	<div id="Title" class="well well-lg">Expression Evaluation</div>
+  	<div class="container">
+      <div class="row">
+        <div class="col-md-6"> 
+          <div class="row" id="arrow">
+          <div class="line"></div>
+          <div class="arrow-head"></div>
+        </div>
+      </div>&nbsp;&nbsp;<br/><br/>
+      <div id="demo" ></div>
+      <div id="demo1"></div>&nbsp;&nbsp;
+    </div>
+    
+    <div class="row"><!--row -->
+  			<div class="col-sm-4"> <!-- first column -->
+              <h1>Calculator</h1>
+              <form name="calculator">
+  					<input id="textbox" type="text" name="ans" size="16" placeholder="Enter here...."/>
+  					<table>
+  						<tr>
+  							<td><button class="btn btn-default" id=" keypara" type="button" onClick="document.calculator.ans.value+='('" />(</button></td>
+  							<td><button class="btn btn-default" id="keypara1" type="button" onClick="document.calculator.ans.value+=')'" />)</button></td>
+  							<td colspan="2"><button class="btn btn-default" id="backspace_button" type="button" onClick="document.calculator.ans.value = document.calculator.ans.value.substring(0,document.calculator.ans.value.length*1 -1)" />backspace</button></td>
+  							<td><button class="btn btn-default" type="clear" id="keyclear" onClick="document.calculator.ans.value+=''" />C</button></td>
+  						</tr><br/>
+
+  						<tr>
+  							<td><button class="btn btn-default" id="key7" type="button" value="7" onClick="document.calculator.ans.value+='7'" />7</button></td>
+  							<td><button class="btn btn-default" id="key8" type="button" value="8" onClick="document.calculator.ans.value+='8'" />8</button></td>
+  							<td><button class="btn btn-default" id="key9" type="button" value="9" onClick="document.calculator.ans.value+='9'" />9</button></td>
+  							<td ><button class="btn btn-default" id="keyslash" type="button" value="/" onClick="document.calculator.ans.value+='/'" />/</button></td>
+  							<td><button class="btn btn-default" id="keycarat" type="button" value="^"  onClick="document.calculator.ans.value+='^'" />^</button></td>
+  						</tr><br />
+
+  						<tr>
+  							<td><button class="btn btn-default" id="key4" type="button" value="4" onClick="document.calculator.ans.value+='4'" />4</button></td>
+  							<td><button class="btn btn-default" id="key5" type="button" value="5" onClick="document.calculator.ans.value+='5'" />5</button></td>
+  							<td><button class="btn btn-default" id="key6" type="button" value="6" onClick="document.calculator.ans.value+='6'" />6</button></td>
+  							<td><button class="btn btn-default" id="keystar" type="button" value="*" onClick="document.calculator.ans.value+='*'" />*</button></td>
+  							<td><button class="btn btn-default" id="keyper" type="button" value="%" onClick="document.calculator.ans.value+='%'" />%</button></td>
+  						</tr><br />
+
+  						<tr>
+  							<td><button class="btn btn-default" id="key1" type="button" value="1" onClick="document.calculator.ans.value+='1'" />1</button></td>
+  							<td><button class="btn btn-default" id="key2" type="button" value="2" onClick="document.calculator.ans.value+='2'" />2</button></td>
+  							<td><button class="btn btn-default"id="key3" type="button" value="3" onClick="document.calculator.ans.value+='3'" />3</button></td>
+  							<td><button class="btn btn-default" id="keyhi" type="button" value="-" onClick="document.calculator.ans.value+='-'" />-</button></td>
+  							<td><button class="btn btn-default" id="key1" type="button" value="1/x" onClick="document.calculator.ans.value+='1/x'" />1/x</td>
+  						</tr><br />
+
+  						<tr>
+  							<td><button class="btn btn-default" id="key0" type="button" value="0" onClick="document.calculator.ans.value+='0'" />0</button></td>
+  							<td><button class="btn btn-default" id="keyaddsub" type="button" value="+/-" onClick="document.calculator.ans.value+='+/-'" />+/-</button></td>
+  							<td><button class="btn btn-default" id="keydot" type="button" value="." onClick="document.calculator.ans.value+='.'" />.</button></td>
+  							<td><button class="btn btn-default" id="keyadd" type="button" value="+" onClick="document.calculator.ans.value+='+'" />+</button></td>
+  							<td><button class="btn btn-default" id="keyequal" type="button" value="=" onclick="showImage();checkVal()"/>=</button></td>
+  							<td><img width="40" height="35" src="Images/rewind.png"></td>
+  							<td> <img width="50" height="45" src="Images/play.png"></td>&nbsp;
+  							<td><img width="70" align="left" height="20" src="Images/arrow.png"></td>
+  						</tr>
+  					</table>
+  			    <form>
+           </div>
+           <!-- <div class="col-sm-4"> <!-- second column -->
+             <!-- <div id="arrow" class="arrow-down"></div>
+             <p id="demo"></p>
+  		  	   <p id="demo1"></p>
+  		  	   <p id="demo4"></p>
+           </div> --> 
+
+           <div class="col-sm-4">  <!-- third column -->
+            <table id="stack" border="2">
+              <tr id="row9"><td class="data"></td></tr>
+              <tr id="row8"><td class="data"></td></tr>
+              <tr id="row7"><td class="data"></td></tr>
+              <tr id="row6"><td class="data"></td></tr> 
+              <tr id="row5"><td class="data"></td></tr>
+              <tr id="row4"><td class="data"></td></tr>
+              <tr id="row3"><td class="data"></td></tr>
+              <tr id="row2"><td class="data"></td></tr>
+              <tr id="row1"><td class="data"></td></tr>
+            </table>
+          </div>
+
+  			<div class="col-sm-4"> <!-- fourth column -->
+  				<p id="demo2" class="instruction"></p>
+  			</div>
+       
+       </div><!--row ended -->
+  </div><!-- container ended -->
+  </body>
+  <!--<script src="exp.js"></script>-->
+  <script src="exp2.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  </html>
