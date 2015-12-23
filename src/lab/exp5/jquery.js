@@ -9,13 +9,15 @@
      $("#hover1").hide();
       $("#one").hide();
       $("#in").show();
-      $("post").show();
+      $("#post").show();
+      $("#arrow").hide();
      
      $("#pre").click(function(){
          $("#hover1").show();
          $("#one").show();
           $("#in").hide();
          $("#post").hide();
+         $("#arrow").show();
      });
      
  });
@@ -24,12 +26,14 @@
       $("#two").hide();
       $("#pre").show();
       $("post").show();
+      $("#arrow").hide();
 
      $("#in").click(function(){
          $("#hover1").show();
          $("#two").show();
          $("#pre").hide();
          $("#post").hide();
+         $("#arrow").show();
      });
      
  });
@@ -38,12 +42,14 @@
      $("#three").hide();
      $("#pre").show();
      $("in").show();
+      $("#arrow").hide();
 
      $("#post").click(function(){
          $("#hover1").show();
          $("#three").show();
          $("#in").hide();
          $("#pre").hide();
+         $("#arrow").show();
      });
      
  });
@@ -59,3 +65,6 @@
 //         $("myDiv").empty();
 //     });
 // });
+
+
+   
