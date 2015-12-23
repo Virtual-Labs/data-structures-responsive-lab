@@ -46,7 +46,7 @@ function checkVal() //validation checking
     //infixToPostExp();
     //postfixEval();
     infixToPostExp();
-    postfixEval();
+    //postfixEval();
 
   }
 
